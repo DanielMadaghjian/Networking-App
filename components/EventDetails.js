@@ -62,7 +62,7 @@ const EventDetails = ({route, navigation}) => {
                         style={styles.buttonWrapper}
                         onPress={() => alert('Your going to '+ item.title + '!')}>
                         <Text style={styles.buttonText}>Attend!</Text>
-                    </TouchableOpacity>
+                </TouchableOpacity>
             </View>           
         </View>
     );
