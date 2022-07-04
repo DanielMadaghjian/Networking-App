@@ -4,9 +4,8 @@ import colors from '../assets/colors/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { StyleSheet, Image, View, Text } from 'react-native';
-import user from '../assets/data/users';
+// import user from '../assets/data/users';
 
-// Should be in different file
 const user = 
     {
         "title":'Javi Daniel',
