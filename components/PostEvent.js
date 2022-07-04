@@ -1,11 +1,16 @@
 import React, {useState} from 'react';
-import {Picker, Text, StyleSheet, View, TextInput, Button} from 'react-native';
+import { Text, StyleSheet, View, TextInput, SafeAreaView, Button} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import { RotateInDownLeft } from 'react-native-reanimated';
 import colors from '../assets/colors/colors';
 
+
 const PostEvent = () => {
-  const [title, setTitle] = useState('')
+  const [title, setTitle] = useState('');
+
+  
+    
+
   return (
     <View style={styles.container}>
       
@@ -16,8 +21,8 @@ const PostEvent = () => {
         <View style={styles.locationAndText}>
             <TextInput placeholder="Date" style={styles.inputStyleDateAndTime} />
             <TextInput placeholder="Time" style={styles.inputStyleDateAndTime}/>
-        </View>
-        
+        </View> 
+
         <TextInput placeholder="Description" style={styles.inputStyleDescription} />
         {/* <TextInput
           secureTextEntry={true}
@@ -30,11 +35,17 @@ const PostEvent = () => {
           onPress={() => alert('You posted the event: ' + title)}>
             <Text style={styles.buttonText}>Post!</Text>
         </TouchableOpacity> 
-
+        
+      
     </View>
   );
 };
 
+/**
+ * Add date and time properties to input fields
+ * Have required fields and appropiate error messages
+ * upload picture option?
+ */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -100,6 +111,8 @@ const styles = StyleSheet.create({
     color: colors.darkBlue,
     marginHorizontal: 20,
   },
+  
+  
 });
 
 export default PostEvent;

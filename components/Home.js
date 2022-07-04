@@ -1,6 +1,8 @@
 import React from 'react';
 import {View, Text, StyleSheet, ScrollView, Image, ImageBackground,} from 'react-native';
 
+
+
 import discoverEvents from '../assets/data/discoverEvents';
 import mostRecentEvents from '../assets/data/mostRecentEvents';
 
@@ -47,9 +49,13 @@ const Home = ({navigation}) => {
         <View style={styles.container}>
             <ScrollView>
                 {/**HEADER */}
-                <Text style={styles.introductionTitle}>Hi Daniel!</Text>       
+                <Text style={styles.introductionTitle}>Hi Daniel!</Text>  
+                
                 <View style={styles.headerWrapper}>                  
                     <Text style={styles.browseEventsTitle}>Explore Events</Text>
+                    <TouchableOpacity  onPress={() => navigation.navigate('Login') }> 
+                        <Text>Login</Text>
+                    </TouchableOpacity>
                     <Image source={profile} style={styles.profileImage}></Image>
                 </View>
 
@@ -76,7 +82,6 @@ const Home = ({navigation}) => {
                     />
                 </View>
             </ScrollView>
-            
         </View>
     );
 };

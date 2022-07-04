@@ -4,6 +4,7 @@ import Home from './components/Home';
 import EventDetails from './components/EventDetails';
 import PostEvent from './components/PostEvent';
 import Profile from './components/Profile';
+import Login from './components/Login';
 
 import colors from './assets/colors/colors';
 
@@ -49,6 +50,7 @@ const TabNavigator = () => {
           tabBarIcon: ({color}) => (
             <Ionicons name="create-sharp" size={32} color={color} />
           ),
+          title: 'Post Event'
         }}        
       />
       <Tab.Screen
@@ -60,6 +62,7 @@ const TabNavigator = () => {
           ),
         }}     
       />
+       
     </Tab.Navigator>
   );
 };
@@ -79,6 +82,11 @@ const App = () => {
             <Stack.Screen
               name="EventDetails"
               component={EventDetails}
+              options={{ title: 'Event Details' }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={Login}
               options={{headerShown: false, }}
             />
          </Stack.Navigator>
