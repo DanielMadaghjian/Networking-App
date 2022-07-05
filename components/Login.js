@@ -49,7 +49,10 @@ const Login = () => {
                             style={styles.checkbox}
                             />
                             <Text style={styles.label}>Remember Me</Text>
+                            <TouchableOpacity>
                             <Text style={styles.label}>Forgot Password</Text>
+                            </TouchableOpacity>
+                            
                         </View>
                         <TouchableOpacity
                             style={styles.buttonWrapper}
