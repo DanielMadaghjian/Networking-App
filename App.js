@@ -18,6 +18,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Register from './components/Register';
 Entypo.loadFont();
 MaterialCommunityIcons.loadFont();
 MaterialIcons.loadFont();
@@ -88,6 +89,11 @@ const App = () => {
             <Stack.Screen
               name="Login"
               component={Login}
+              options={{headerShown: false, }}
+            />
+            <Stack.Screen
+              name="Register"
+              component={Register}
               options={{headerShown: false, }}
             />
          </Stack.Navigator>

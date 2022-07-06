@@ -56,6 +56,9 @@ const Home = ({navigation}) => {
                     <TouchableOpacity  onPress={() => navigation.navigate('Login') }> 
                         <Text>Login</Text>
                     </TouchableOpacity>
+                    <TouchableOpacity  onPress={() => navigation.navigate('Register') }> 
+                        <Text>Register</Text>
+                    </TouchableOpacity>
                     <Image source={profile} style={styles.profileImage}></Image>
                 </View>
 
