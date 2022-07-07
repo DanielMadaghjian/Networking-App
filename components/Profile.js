@@ -5,7 +5,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { StyleSheet, Image, View, Text, Linking } from 'react-native';
-import { FlatList } from 'react-native-gesture-handler/lib/commonjs';
+import { FlatList, TouchableOpacity } from 'react-native-gesture-handler/lib/commonjs';
 // import user from '../assets/data/users';
 
 const user =
@@ -85,8 +85,12 @@ const Profile = () => {
                         <Text>My Socials</Text>
                         {/* Should be buttons */}
                         <View style={styles.symbolContainer}>
-                            <Entypo name='list' color={colors.darkBlue} size={18} />
+                            <TouchableOpacity>
+                                <Entypo name='list' color={colors.darkBlue} size={18} />
+                            </TouchableOpacity >
+                            <TouchableOpacity>
                             <MaterialCommunityIcons name='view-grid' color={colors.darkBlue} size={18} />
+                            </TouchableOpacity>
                         </View>
                     </View>
                     <View style={styles.socials}>
