@@ -1,11 +1,12 @@
 import { Text, StyleSheet, View, TextInput, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from "react-native"
+import { Entypo } from "react-native-vector-icons/Entypo"
 import { useState } from "react"
 import backgroundImage from '../assets/images/backgroundImage.jpg'
 import colors from "../assets/colors/colors"
 
 const height = Dimensions.get('window').height;
 
-const Register = () => {
+const Register = ({ navigation }) => {
     const [firstName, setFirstName] = useState();
     const [lastName, setLastName] = useState();
     const [email, setEmail] = useState();
@@ -20,7 +21,11 @@ const Register = () => {
                 </View>
             </ImageBackground>
             <View style={styles.bottomView}>
-                <View style={styles.createAccountWrapper}>
+                <TouchableOpacity
+                    onPress={() => navigation.goBack()}>
+                    <Text style={styles.backText}>Go Back</Text>
+                </TouchableOpacity>
+                <View style={styles.headerWrapper}>
                     <Text style={styles.createAccountText}>Create Account</Text>
                 </View>
                 <View style={styles.formWrapper}>
@@ -144,7 +149,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textTransform: 'uppercase',
     },
-    createAccountWrapper: {
+    headerWrapper: {
         height: height * 0.1,
         alignItems: 'center',
     },
@@ -159,6 +164,11 @@ const styles = StyleSheet.create({
         backgroundColor: colors.white,
         borderTopStartRadius: 60,
         borderTopEndRadius: 60,
+    },
+    backText: {
+        textAlign: "screenLeft",
+        marginLeft: 20,
+        color: 'red'
     },
 })
 export default Register
