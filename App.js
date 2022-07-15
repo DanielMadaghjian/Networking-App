@@ -5,6 +5,7 @@ import EventDetails from './components/EventDetails';
 import PostEvent from './components/PostEvent';
 import Profile from './components/Profile';
 import Login from './components/Login';
+import CreateAccount from './components/CreateAccount';
 
 import colors from './assets/colors/colors';
 
@@ -17,6 +18,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+
 Entypo.loadFont();
 MaterialCommunityIcons.loadFont();
 MaterialIcons.loadFont();
@@ -88,6 +90,11 @@ const App = () => {
               name="Login"
               component={Login}
               options={{headerShown: false, }}
+            />
+            <Stack.Screen
+              name="CreateAccount"
+              component={CreateAccount}
+              options={{title: 'Create Account' }}
             />
          </Stack.Navigator>
         </NavigationContainer>

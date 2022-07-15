@@ -11,7 +11,7 @@ MaterialCommunityIcons.loadFont();
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
-const Login = () => {
+const Login = (navigation) => {
     const [isSelected, setSelection] = useState(false);
 
     return (
@@ -29,7 +29,10 @@ const Login = () => {
                     <Text style={styles.welcomeText}>Welcome</Text>
                     <Text>
                         Don't have an account?
-                        <Text style={styles.registerNowText}>{'  '} Register Now</Text>
+                        <TouchableOpacity  onPress={() => navigation.navigate('CreateAccount') }>
+                            <Text style={styles.registerNowText}>{'  '} Register Now</Text>
+                        </TouchableOpacity>
+                        
                     </Text>
                 </View>
                 <View style={styles.formWrapper}>
@@ -50,9 +53,8 @@ const Login = () => {
                             />
                             <Text style={styles.label}>Remember Me</Text>
                             <TouchableOpacity>
-                            <Text style={styles.label}>Forgot Password</Text>
+                                <Text style={styles.label}>Forgot Password</Text>
                             </TouchableOpacity>
-                            
                         </View>
                         <TouchableOpacity
                             style={styles.buttonWrapper}
