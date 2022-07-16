@@ -3,7 +3,7 @@ import React from 'react';
 import Home from './Screens/Home';
 import EventDetails from './Screens/EventDetails';
 import PostEvent from './Screens/PostEvent';
-import Profile from './components/Profile';
+import Profile from './Screens/Profile';
 import Login from './Auth/Login';
 import Register from './Auth/Register';
 
