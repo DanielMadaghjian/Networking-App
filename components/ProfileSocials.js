@@ -1,5 +1,4 @@
 import React from 'react';
-import profile from '../assets/images/person.png';
 import colors from '../assets/colors/colors';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -44,9 +43,7 @@ const user =
     ],
 }
 
-
-
-const Profile = () => {
+const ProfileSocials = () => {
     const renderSocials = ({ item }) => {
         if (item.availiable == false) return
         return (
@@ -55,31 +52,8 @@ const Profile = () => {
             </FontAwesome.Button>
         )
     }
-
     return (
         <View>
-            <View style={styles.profileWrapper}>
-                <View style={styles.headerWrapper}>
-                    <Image source={profile} style={styles.profileImage}></Image>
-                    <View style={styles.nameAndRoleWrapper}>
-                        <Text style={styles.nameText}>{user.title}</Text>
-                        <Text style={styles.roleText}>{user.role}</Text>
-                    </View>
-                </View>
-                <View style={styles.descriptionWrapper}>
-                    <Text style={styles.aboutText} >About Me</Text>
-                    <Text numberOfLines={4} ellipsizeMode="tail" style={styles.description}>{user.bio}</Text>
-                </View>
-                <View style={styles.statsWrapper}>
-                    <View style={styles.statsCard}>
-                        <Text style={styles.stat}>{user.eventsAttended}</Text>
-                        <Text style={styles.statName}>Events Attended</Text>
-                    </View>
-                    <View style={styles.statsCard}>
-                        <Text style={styles.stat}>{user.eventsPosted}</Text>
-                        <Text style={styles.statName}>Events Attended</Text>
-                    </View>
-                </View>
                 <View style={styles.socialsWrapper}>
                     <View style={styles.socialsHeader}>
                         <Text>My Socials</Text>
@@ -102,7 +76,6 @@ const Profile = () => {
                         />
                     </View>
                 </View>
-            </View>
         </View>
     );
 };
@@ -124,13 +97,6 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         textAlignVertical: 'center'
     },
-    statsWrapper: {
-        width: 275,
-        marginTop: 10,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
     socialsWrapper: {
         marginTop: 20,
         borderColor: colors.lightBlue,
@@ -150,65 +116,6 @@ const styles = StyleSheet.create({
         marginTop: 10,
         fontSize: 20,
     },
-    stat: {
-        marginTop: 10,
-        fontWeight: 'bold',
-        fontSize: 20,
-        color: colors.white
-    },
-    statsCard: {
-        backgroundColor: colors.darkBlue,
-        borderRadius: 10,
-        width: 125,
-        textAlign: 'center',
-    },
-    profileImage: {
-        width: 140,
-        height: 140,
-        borderRadius: 10,
-    },
-    descriptionWrapper: {
-        width: 275,
-        marginTop: 20,
-        textAlign: 'left'
-    },
-    statName: {
-        marginTop: 10,
-        color: colors.white,
-        marginBottom: 10,
-    },
-    description: {
-        fontSize: 14,
-        color: colors.darkBlue
-    },
-    aboutText: {
-        fontWeight: 'bold',
-        fontSize: 20
-    },
-    nameText: {
-        fontSize: 20,
-        fontWeight: 'bold'
-    },
-    roleText: {
-        color: 'blue'
-    },
-    nameAndRoleWrapper: {
-        height: 60,
-        justifyContent: 'space-between',
-    },
-    headerWrapper: {
-        width: 275,
-        marginHorizontal: 2,
-        marginTop: 10,
-        marginLeft: 2,
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-    },
-    profileWrapper: {
-        alignItems: 'center',
-        justifyContent: 'center',
-    }
 })
 
-export default Profile;
+export default ProfileSocials;
