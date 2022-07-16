@@ -11,8 +11,7 @@ import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 
 Entypo.loadFont();
 
-const MostRecentEvents = ({navigation}) => {
-   
+const MostRecentEvents = ({navigation}) => { 
         const renderBrowseItem = ({item}) => {
             return (
               <TouchableOpacity
@@ -52,8 +51,7 @@ const MostRecentEvents = ({navigation}) => {
                     showsHorizontalScrollIndicator={false}
                     />
             </View>
-        ) 
-    
+        )   
 };
 
 const styles = StyleSheet.create({
@@ -75,8 +73,7 @@ const styles = StyleSheet.create({
         
       },
       discoverItemImage: {
-        borderRadius: 20,
-        
+        borderRadius: 20,     
       },
       recentEventsTitle: {
         marginHorizontal: 20,

@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, StyleSheet, ScrollView, Image, ImageBackground,} from 'react-native';
+import {View, Text, StyleSheet, ImageBackground,} from 'react-native';
 
 import discoverEvents from '../assets/data/discoverEvents';
 
@@ -12,7 +12,6 @@ import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 Entypo.loadFont();
 
 const ExploreEvents = ({navigation}) => {
-   
         const renderBrowseItem = ({item}) => {
             return (
               <TouchableOpacity

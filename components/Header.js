@@ -7,8 +7,7 @@ import colors from '../assets/colors/colors';
 import { TouchableOpacity} from 'react-native-gesture-handler';
 
 const Header = ({navigation}) => {
-    return (
-        
+    return (     
             <View>
                 <Text style={styles.introductionTitle}>Hi Daniel!</Text>  
                 
@@ -22,8 +21,7 @@ const Header = ({navigation}) => {
                     </TouchableOpacity>
                     <Image source={profile} style={styles.profileImage}></Image>
                 </View>
-            </View>
-          
+            </View>     
     )
 };
 

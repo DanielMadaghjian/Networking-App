@@ -1,16 +1,10 @@
 import React, {useState} from 'react';
-import { Text, StyleSheet, View, TextInput, SafeAreaView, Button} from 'react-native';
+import { Text, StyleSheet, View, TextInput} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import { RotateInDownLeft } from 'react-native-reanimated';
 import colors from '../assets/colors/colors';
-
 
 const PostEvent = () => {
   const [title, setTitle] = useState('');
-
-  
-    
-
   return (
     <View style={styles.container}>
       
@@ -35,8 +29,6 @@ const PostEvent = () => {
           onPress={() => alert('You posted the event: ' + title)}>
             <Text style={styles.buttonText}>Post!</Text>
         </TouchableOpacity> 
-        
-      
     </View>
   );
 };
@@ -111,8 +103,6 @@ const styles = StyleSheet.create({
     color: colors.darkBlue,
     marginHorizontal: 20,
   },
-  
-  
 });
 
 export default PostEvent;

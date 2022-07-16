@@ -1,8 +1,8 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
 import Home from './Screens/Home';
-import EventDetails from './components/EventDetails';
-import PostEvent from './components/PostEvent';
+import EventDetails from './Screens/EventDetails';
+import PostEvent from './Screens/PostEvent';
 import Profile from './components/Profile';
 import Login from './Auth/Login';
 import Register from './Auth/Register';

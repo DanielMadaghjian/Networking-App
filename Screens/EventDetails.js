@@ -12,8 +12,7 @@ const EventDetails = ({route, navigation}) => {
     const {item} = route.params;
 
     return (
-        <View style={styles.container}>
-             
+        <View style={styles.container}>          
             <ImageBackground source={item.image} style={styles.backgroundImage}>
                 <TouchableOpacity
                     style={styles.backIcon}
@@ -158,8 +157,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         color: colors.white,
         marginHorizontal: 20,
-      },
-      
+      }, 
 })
 
 export default EventDetails;
