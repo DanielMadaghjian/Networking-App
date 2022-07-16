@@ -1,10 +1,12 @@
 import {View, Text, StyleSheet} from 'react-native';
 import React from 'react';
-import Home from './components/Home';
+import Home from './Screens/Home';
 import EventDetails from './components/EventDetails';
 import PostEvent from './components/PostEvent';
 import Profile from './components/Profile';
-import Login from './components/Login';
+import Login from './Auth/Login';
+import Register from './Auth/Register';
+
 
 import colors from './assets/colors/colors';
 
@@ -18,7 +20,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Register from './components/Register';
+
 Entypo.loadFont();
 MaterialCommunityIcons.loadFont();
 MaterialIcons.loadFont();
@@ -96,6 +98,7 @@ const App = () => {
               component={Register}
               options={{headerShown: false, }}
             />
+            
          </Stack.Navigator>
         </NavigationContainer>
     );
