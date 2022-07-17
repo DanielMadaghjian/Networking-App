@@ -1,9 +1,7 @@
 import React from 'react';
 import {Text, View,  StyleSheet, Image} from 'react-native';
 
-import {NavigationContainer} from '@react-navigation/native';
 import profile from '../assets/images/person.png';
-import colors from '../assets/colors/colors';
 import { TouchableOpacity} from 'react-native-gesture-handler';
 
 const Header = ({navigation}) => {

@@ -1,8 +1,6 @@
 import React from 'react';
 import {View, Text, StyleSheet, ImageBackground,} from 'react-native';
 
-import discoverEvents from '../assets/data/discoverEvents';
-
 import colors from '../assets/colors/colors';
 
 import Entypo from 'react-native-vector-icons/Entypo';
@@ -12,6 +10,43 @@ import {FlatList, TouchableOpacity} from 'react-native-gesture-handler';
 Entypo.loadFont();
 
 const ExploreEvents = ({navigation}) => {
+
+  const discoverEvents = [
+      {
+          id: 'discover-1',
+          title: 'Dublin Tech Summit',
+          location: 'Dogpatch Labs',
+          date: '13/06/22-18/06/22',
+          time: '9am-3pm',
+          price: 'Free',
+          image: require('../assets/images/DublinTechSummit.png'),
+          description:
+            "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+      },
+      {
+          id: 'discover-2',
+          title: 'Gerry Cinnamon',
+          location: 'Malahide Castle',
+          date: '18/06/22',
+          time: '7:30pm-10:30pm',
+          price: 'Free',
+          image: require('../assets/images/GerryCinnamon.png'),
+          description:
+            "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+        },
+        {
+          id: 'discover-3',
+          title: 'Dans 21st',
+          location: '24 Joy Street',
+          date: '13/06/22',
+          time: '7:30pm-12am',
+          price: 'Free',
+          image: require('../assets/images/birthday.png'),
+          description:
+            "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+        },  
+  ]
+
         const renderBrowseItem = ({item}) => {
             return (
               <TouchableOpacity
