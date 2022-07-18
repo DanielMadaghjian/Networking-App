@@ -48,9 +48,11 @@ const ProfileSocials = () => {
     const renderSocials = ({ item }) => {
         if (item.availiable == false) return
         return (
-            <FontAwesome.Button style={styles.socialCard} name={item.type} backgroundColor={colors[item.type]} onPress={() => { Linking.openURL(`${item.link}`) }}>
-                {item.type}
-            </FontAwesome.Button>
+            <View style={{marginVertical: 5}}>
+                <FontAwesome.Button style={styles.socialCard} name={item.type} backgroundColor={colors[item.type]} onPress={() => { Linking.openURL(`${item.link}`) }}>
+                    {item.type}
+                </FontAwesome.Button>
+            </View>
         )
     }
     return (

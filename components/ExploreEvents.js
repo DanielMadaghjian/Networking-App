@@ -22,6 +22,18 @@ const ExploreEvents = ({navigation}) => {
           image: require('../assets/images/DublinTechSummit.png'),
           description:
             "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+          "attendees": [
+              {
+                "name": 'Daniel Madaghjian',
+              },
+              {
+                "name": 'Diarmuid McGonagle',
+              },
+              {
+                "name": 'Ryan Idowu',
+              },
+
+          ]
       },
       {
           id: 'discover-2',
@@ -33,6 +45,18 @@ const ExploreEvents = ({navigation}) => {
           image: require('../assets/images/GerryCinnamon.png'),
           description:
             "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+            "attendees": [
+              {
+                "name": 'Daniel Madaghjian',
+              },
+              {
+                "name": 'Diarmuid McGonagle',
+              },
+              {
+                "name": 'Ryan Idowu',
+              },
+
+          ]
         },
         {
           id: 'discover-3',
@@ -44,6 +68,18 @@ const ExploreEvents = ({navigation}) => {
           image: require('../assets/images/birthday.png'),
           description:
             "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+            "attendees": [
+              {
+                "name": 'Daniel Madaghjian',
+              },
+              {
+                "name": 'Diarmuid McGonagle',
+              },
+              {
+                "name": 'Ryan Idowu',
+              },
+
+          ]
         },  
   ]
 

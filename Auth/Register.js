@@ -162,13 +162,16 @@ const styles = StyleSheet.create({
     bottomView: {
         flex: 1.5,
         backgroundColor: colors.white,
+        bottom: 50,
         borderTopStartRadius: 60,
         borderTopEndRadius: 60,
+        marginTop: 20,
     },
     backText: {
         textAlign: "screenLeft",
         marginLeft: 20,
-        color: 'red'
+        color: 'red',
+        marginTop: 40,
     },
 })
 export default Register

@@ -25,6 +25,10 @@ const Login = ({ navigation }) => {
             </ImageBackground>
 
             <View style={styles.bottomView}>
+                <TouchableOpacity
+                    onPress={() => navigation.goBack()}>
+                    <Text style={styles.backText}>Go Back</Text>
+                </TouchableOpacity>
                 <View style={{ marginTop: 40, marginLeft: 40 }}>
                     <Text style={styles.welcomeText}>Welcome</Text>
                     <Text>
@@ -171,7 +175,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         marginTop: 20,
-    }
+    },
+    backText: {
+        textAlign: "screenLeft",
+        marginLeft: 20,
+        color: 'red',
+        marginTop: 40,
+    },
 
 });
 
