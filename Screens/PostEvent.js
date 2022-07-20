@@ -41,7 +41,7 @@ const PostEvent = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.darkBlue,
+    backgroundColor: colors.white,
     alignItems: 'center',
     justifyContent: 'center',
   },
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
   buttonWrapper: {
     marginHorizontal: 20,
     marginTop: 40,
-    backgroundColor: colors.lightGreen,
+    backgroundColor: colors.darkBlue,
     alignItems: 'center',
     paddingVertical: 15,
     borderRadius: 10,
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontFamily: 'Lato-Bold',
     fontSize: 18,
-    color: colors.darkBlue,
+    color: colors.white,
     marginHorizontal: 20,
   },
 });
