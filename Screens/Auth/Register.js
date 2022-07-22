@@ -3,15 +3,16 @@ import { Entypo } from "react-native-vector-icons/Entypo"
 import { useState } from "react"
 import backgroundImage from '../../assets/images/backgroundImage.jpg'
 import colors from "../../assets/colors/colors"
+import signUp from "../../authLogic/SignUp"
 
 const height = Dimensions.get('window').height;
 
 const Register = ({ navigation }) => {
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [email, setEmail] = useState();
-    const [role, setRole] = useState();
-    const [password, setPassword] = useState();
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [role, setRole] = useState('');
+    const [password, setPassword] = useState('');
 
     return (
         <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -78,6 +79,7 @@ const Register = ({ navigation }) => {
                                 'email': email,
                                 'password': password
                             }
+                            signUp(user);
                             alert('You registered! ');
                             console.log(user)
                         }}>
