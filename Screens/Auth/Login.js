@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 import { View, CheckBox, Text, StyleSheet, ScrollView, ImageBackground, Dimensions, TextInput } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import colors from '../assets/colors/colors';
-import backgroundImage from '../assets/images/backgroundImage.jpg';
+import colors from '../../assets/colors/colors';
+import backgroundImage from '../../assets/images/backgroundImage.jpg';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 MaterialCommunityIcons.loadFont();

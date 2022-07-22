@@ -10,7 +10,7 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 Entypo.loadFont();
 
-const Home = ({navigation}) => {
+const Home = ({navigation, signIn, signOut}) => {
     return (
         <View style={styles.container}>
             <ScrollView>

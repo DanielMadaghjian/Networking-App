@@ -1,8 +1,8 @@
 import { Text, StyleSheet, View, TextInput, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from "react-native"
 import { Entypo } from "react-native-vector-icons/Entypo"
 import { useState } from "react"
-import backgroundImage from '../assets/images/backgroundImage.jpg'
-import colors from "../assets/colors/colors"
+import backgroundImage from '../../assets/images/backgroundImage.jpg'
+import colors from "../../assets/colors/colors"
 
 const height = Dimensions.get('window').height;
 
