@@ -11,8 +11,9 @@ const Register = ({ navigation }) => {
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState('');
     const [email, setEmail] = useState('');
-    const [role, setRole] = useState('');
+    const [occupation, setOccupation] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmedPass, setConfirmedPassword] = useState('');
 
     return (
         <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -46,10 +47,10 @@ const Register = ({ navigation }) => {
                     </View>
                     {/* Should be a dropdown */}
                     <TextInput
-                        placeholder="Role"
-                        value={role}
+                        placeholder="Occupation"
+                        value={occupation}
                         style={styles.inputStyle}
-                        onChangeText={text => setRole(text)}
+                        onChangeText={text => setOccupation(text)}
                     />
                     <TextInput
                         placeholder="Email"
@@ -69,19 +70,26 @@ const Register = ({ navigation }) => {
                         secureTextEntry={true}
                         placeholder="Confirm password"
                         style={styles.inputStyle}
+                        onChangeText={text => setConfirmedPassword(text)}
                     />
                     <TouchableOpacity
                         style={styles.buttonWrapper}
                         onPress={() => {
-                            const user = {
-                                'firstName': firstName,
-                                'lastName': lastName,
-                                'email': email,
-                                'password': password
+                            if (confirmedPass === password) {
+                                const user = {
+                                    'firstName': firstName,
+                                    'lastName': lastName,
+                                    'email': email,
+                                    'occupation': occupation,
+                                    'password': password
+                                }
+                                signUp(user);
+                                navigation.navigate('Confirmation');
                             }
-                            signUp(user);
-                            alert('You registered! ');
-                            console.log(user)
+                            else {
+                                alert('Passwords do not match')
+                            }
+
                         }}>
                         <Text style={styles.buttonText}>Register!!</Text>
                     </TouchableOpacity>

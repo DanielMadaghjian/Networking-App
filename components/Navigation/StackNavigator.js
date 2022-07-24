@@ -4,6 +4,7 @@ import EventDetails from '../../Screens/EventDetails'
 import Login from '../../Screens/Auth/Login';
 import Register from '../../Screens/Auth/Register';
 import {createStackNavigator} from '@react-navigation/stack';
+import Confirmation from '../../Screens/Auth/Confirmation';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,11 @@ const StackNavigator = () => (
         <Stack.Screen
             name="Register"
             component={Register}
+            options={{ headerShown: false, }}
+        />
+        <Stack.Screen
+            name="Confirmation"
+            component={Confirmation}
             options={{ headerShown: false, }}
         />
 
