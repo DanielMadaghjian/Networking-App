@@ -1,11 +1,12 @@
 import React from 'react';
 import colors from '../assets/colors/colors';
 import { StyleSheet, Image, View, Text } from 'react-native';
+import Options from './Options';
+import { TouchableOpacity } from 'react-native-gesture-handler/lib/commonjs';
 
 
 
-
-const ProfileInfo = () => {
+const ProfileInfo = ({navigation}) => {
     const user =
     {
         "title": 'Javi Daniel',
@@ -51,6 +52,10 @@ const ProfileInfo = () => {
                         <View style={styles.nameAndRoleWrapper}>
                             <Text style={styles.nameText}>{user.title}</Text>
                             <Text style={styles.roleText}>{user.role}</Text>
+                        </View>
+                        
+                        <View style = {{marginLeft: 10,}}>
+                            <Options navigation={navigation}></Options>
                         </View>
                     </View>
                     <View style={styles.descriptionWrapper}>
@@ -127,6 +132,7 @@ const styles = StyleSheet.create({
     nameAndRoleWrapper: {
         height: 60,
         justifyContent: 'space-between',
+        marginHorizontal: 10,
     },
     headerWrapper: {
         width: 275,
