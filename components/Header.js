@@ -17,7 +17,10 @@ const Header = ({navigation}) => {
                     <TouchableOpacity  onPress={() => navigation.navigate('Register') }> 
                         <Text>Register</Text>
                     </TouchableOpacity>
-                    <Image source={profile} style={styles.profileImage}></Image>
+                    <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
+                        <Image source={profile} style={styles.profileImage}></Image>
+                    </TouchableOpacity>
+                    
                 </View>
             </View>     
     )
