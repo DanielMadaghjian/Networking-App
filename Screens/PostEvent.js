@@ -24,11 +24,18 @@ const PostEvent = () => {
           style={styles.inputStyle}         
         />       */}
       </View>
-         <TouchableOpacity
-          style={styles.buttonWrapper}
-          onPress={() => alert('You posted the event: ' + title)}>
-            <Text style={styles.buttonText}>Post!</Text>
-        </TouchableOpacity> 
+      <View style={{flexDirection:'row'}}>
+        <TouchableOpacity
+            style={styles.cancelButtonWrapper}
+            onPress={() => alert('You cancelled the event: ' + title)}>
+              <Text style={styles.buttonText}>Cancel</Text>
+          </TouchableOpacity> 
+          <TouchableOpacity
+            style={styles.postButtonWrapper}
+            onPress={() => alert('You posted the event: ' + title)}>
+              <Text style={styles.buttonText}>Post!</Text>
+          </TouchableOpacity> 
+        </View>
     </View>
   );
 };
@@ -89,13 +96,24 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 20,
   },
-  buttonWrapper: {
+  postButtonWrapper: {
     marginHorizontal: 20,
     marginTop: 40,
     backgroundColor: colors.darkBlue,
     alignItems: 'center',
     paddingVertical: 15,
     borderRadius: 10,
+  },
+  cancelButtonWrapper: {
+    marginHorizontal: 20,
+    marginTop: 50,
+    backgroundColor: colors.lightGrey,
+    alignItems: 'center',
+    paddingVertical: 10,
+    borderRadius: 8,
+    width: 60,
+    height: 35,
+    
   },
   buttonText: {
     fontFamily: 'Lato-Bold',
