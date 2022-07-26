@@ -15,7 +15,7 @@ MaterialIcons.loadFont();
 
 const options = [
     {
-      id: "Home",
+      id: "EditProfile",
       title: "Edit Profile ",
     },
     {
@@ -51,23 +51,25 @@ const Options = ({navigation}) => {
             }}  
           >
               <View style={styles.centeredView}>
+                    
                 <View style={styles.modalView}>
-                  <SafeAreaView>
-                  <Pressable
-                      onPress={() => setModalVisible(!modalVisible)}
-                  >
-                      <TouchableOpacity style={[styles.cancel]}>
-                          <MaterialIcons name="cancel" size={16} color={colors.lightGrey} />
-                      </TouchableOpacity>
-                  </Pressable>
-                      {options.map((option) => {
-                            return (
-                            <TouchableOpacity onPress={() => {navigation.navigate(option.id) , setModalVisible(!modalVisible)}} style={[styles.item]}>
-                                <Text style={[styles.title]}>{option.title}</Text>
-                              </TouchableOpacity>
-                            );
-                        })}
-                  </SafeAreaView>    
+                      <Pressable
+                          onPress={() => setModalVisible(!modalVisible)} 
+                      >
+                          <TouchableOpacity style={[styles.cancel]}>
+                              <MaterialIcons name="cancel" size={16} color={'red'} />
+                          </TouchableOpacity>
+                      </Pressable>
+                      <SafeAreaView>
+                     
+                          {options.map((option) => {
+                                return (
+                                <TouchableOpacity onPress={() => {navigation.navigate(option.id, {option: option,}) , setModalVisible(!modalVisible)}} style={[styles.item]}>
+                                    <Text style={[styles.title]}>{option.title}</Text>
+                                  </TouchableOpacity>
+                                );
+                            })}
+                      </SafeAreaView>    
                 </View>
               </View>
             </Modal>
@@ -93,14 +95,14 @@ const styles = StyleSheet.create({
         marginTop: 40,
       },
       cancel: {
-        justifyContent: "flex-end",
+        alignSelf: 'flex-start',
       },
       modalView: {
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
         padding: 2,
-        alignItems: "center",
+        // alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
           width: 0,

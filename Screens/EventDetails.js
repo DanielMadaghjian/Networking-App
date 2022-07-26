@@ -27,7 +27,7 @@ const EventDetails = ({route, navigation}) => {
 
     return (
         <View style={styles.container}>       
-            <EventInfo item={item} navigation={navigation}></EventInfo> 
+          <EventInfo item={item} navigation={navigation}></EventInfo> 
            <EventAttendees item={item}></EventAttendees>
         </View>
     );
