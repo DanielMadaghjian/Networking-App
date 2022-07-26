@@ -7,8 +7,10 @@ import Entypo from 'react-native-vector-icons/Entypo';
 Entypo.loadFont();
 
 import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons'
-
 SimpleLineIcons.loadFont();
+
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
+MaterialIcons.loadFont();
 
 
 const options = [
@@ -26,14 +28,11 @@ const options = [
     },
   ];
 
-  
-
 const Options = ({navigation}) => {
 
   const [modalVisible, setModalVisible] = useState(false);
     return(
-     
-        <View >
+        <View>
            <Pressable
             style={[styles.button, styles.buttonOpen]}
             onPress={() => setModalVisible(true)}
@@ -42,7 +41,6 @@ const Options = ({navigation}) => {
                       <SimpleLineIcons name="options-vertical" size={16} color={colors.lightGrey} />
               </TouchableOpacity>
           </Pressable>
-          
           <Modal
             animationType="slide"
             transparent={true}
@@ -50,13 +48,18 @@ const Options = ({navigation}) => {
             onRequestClose={() => {
               Alert.alert("Modal has been closed.");
               setModalVisible(!modalVisible);
-            }}
-            
+            }}  
           >
               <View style={styles.centeredView}>
                 <View style={styles.modalView}>
-                  
-                  <SafeAreaView style={styles.container}>
+                  <SafeAreaView>
+                  <Pressable
+                      onPress={() => setModalVisible(!modalVisible)}
+                  >
+                      <TouchableOpacity style={[styles.cancel]}>
+                          <MaterialIcons name="cancel" size={16} color={colors.lightGrey} />
+                      </TouchableOpacity>
+                  </Pressable>
                       {options.map((option) => {
                             return (
                             <TouchableOpacity onPress={() => {navigation.navigate(option.id) , setModalVisible(!modalVisible)}} style={[styles.item]}>
@@ -79,6 +82,7 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         marginHorizontal: 10,
       },
+      
       title: {
         fontSize: 12,
       },
@@ -87,15 +91,14 @@ const styles = StyleSheet.create({
          justifyContent: "flex-end",
         alignItems: "center",
         marginTop: 40,
-        
-        
-        
+      },
+      cancel: {
+        justifyContent: "flex-end",
       },
       modalView: {
         margin: 20,
         backgroundColor: "white",
         borderRadius: 20,
-       
         padding: 2,
         alignItems: "center",
         shadowColor: "#000",
