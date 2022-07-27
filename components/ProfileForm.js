@@ -11,6 +11,9 @@ MaterialCommunityIcons.loadFont();
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 FontAwesome.loadFont();
 
+import Entypo from 'react-native-vector-icons/Entypo';
+Entypo.loadFont();
+
 const height = Dimensions.get('window').height;
 const width = Dimensions.get('window').width;
 
@@ -25,10 +28,11 @@ const ProfileForm = ({user, navigation}) => {
             <View style={styles.imageBackground} >
             <Text style={{marginTop: 4, textAlign: 'center', fontSize: 20}}>Profile</Text>
                 <View style={{flexDirection: 'row', justifyContent: "space-between"}}>
-                    <TouchableOpacity
-                        onPress={() => navigation.goBack()}>
-                        <Text style={styles.backText}>Go Back</Text>
-                    </TouchableOpacity>
+                <TouchableOpacity
+                    style={styles.backIcon}
+                    onPress={() => navigation.goBack()}>
+                    <Entypo name="chevron-left" size={32} color={colors.white} />
+                </TouchableOpacity>
                     
                     <TouchableOpacity onPress={() => {{alert('Changes saved! '), navigation.navigate("Profile")}}}>
                         <Text style={styles.saveText}>Save</Text>
