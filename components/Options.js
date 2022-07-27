@@ -12,6 +12,7 @@ SimpleLineIcons.loadFont();
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 MaterialIcons.loadFont();
 
+//https://uxdesign.cc/designing-a-better-settings-page-for-your-app-fcc32fe8c724
 
 const options = [
     {
@@ -19,7 +20,7 @@ const options = [
       title: "Edit Profile ",
     },
     {
-      id: "PostEvent",
+      id: "Settings",
       title: "Settings",
     },
     {

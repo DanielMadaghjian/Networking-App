@@ -5,6 +5,7 @@ import Login from '../../Screens/Auth/Login';
 import Register from '../../Screens/Auth/Register';
 import {createStackNavigator} from '@react-navigation/stack';
 import EditProfile from '../../Screens/EditProfile';
+import Settings from '../../Screens/Settings';
 
 const Stack = createStackNavigator();
 
@@ -35,6 +36,11 @@ const StackNavigator = () => (
         <Stack.Screen
             name="EditProfile"
             component={EditProfile}
+            options={{ headerShown: false, }}
+        />
+         <Stack.Screen
+            name="Settings"
+            component={Settings}
             options={{ headerShown: false, }}
         />
 
