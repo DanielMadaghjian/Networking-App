@@ -8,7 +8,9 @@ const Header = ({navigation}) => {
     return (     
             <View>
                 <Text style={styles.introductionTitle}>Hi Daniel!</Text>  
-                
+                <TouchableOpacity  onPress={() => navigation.navigate('Confirmation',{email: 'ryanidowu@gmail.com'}) }> 
+                        <Text>Confirmation DELETE</Text>
+                    </TouchableOpacity>
                 <View style={styles.headerWrapper}>                  
                     <Text style={styles.browseEventsTitle}>Explore Events</Text>
                     <TouchableOpacity  onPress={() => navigation.navigate('Login') }> 

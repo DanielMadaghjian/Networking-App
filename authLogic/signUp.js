@@ -34,7 +34,7 @@ const validateEmail = (email) => {
     return false;
 }
 
-const signUp = (user) => {
+const signUp = (user, navigation) => {
     if (validateAttributes(user) && (validateEmail(user.email) && validatePassword(user.password))) {
         Auth.signUp({
             username: user.email,
@@ -44,9 +44,10 @@ const signUp = (user) => {
             }
 
         })
-            .then(res => {
-                alert('signed up')
-            })
+            .then(() => {
+                navigation.navigate('Confirmation', {email: user.email})
+            }
+            )
             .catch(e => {
                 if (e['code'] === "UsernameExistsException") {
                     alert('There is already an account registered with this email');
@@ -54,5 +55,6 @@ const signUp = (user) => {
             }
             )
     }
+    return false
 }
 export default signUp

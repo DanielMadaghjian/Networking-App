@@ -83,8 +83,8 @@ const Register = ({ navigation }) => {
                                     'occupation': occupation,
                                     'password': password
                                 }
-                                signUp(user);
-                                navigation.navigate('Confirmation');
+                                signUp(user, navigation);
+                                
                             }
                             else {
                                 alert('Passwords do not match')
