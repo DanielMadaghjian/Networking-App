@@ -50,11 +50,10 @@ const signUp = (user, navigation) => {
             )
             .catch(e => {
                 if (e['code'] === "UsernameExistsException") {
-                    alert('There is already an account registered with this email');
+                    alert('There is already an account registered with this email')
                 }
             }
             )
     }
-    return false
 }
 export default signUp
