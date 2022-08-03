@@ -42,8 +42,9 @@ const Options = ({navigation}) => {
                       <SimpleLineIcons name="options-vertical" size={16} color={colors.lightGrey} />
               </TouchableOpacity>
           </Pressable>
+         
           <Modal
-            animationType="slide"
+            animationType="fade"
             transparent={true}
             visible={modalVisible}
             onRequestClose={() => {
@@ -74,12 +75,12 @@ const Options = ({navigation}) => {
                 </View>
               </View>
             </Modal>
+            
         </View>
     )   
 }
 
 const styles = StyleSheet.create({
-    
       item: {
         padding: 10,
         marginVertical: 8,
@@ -93,10 +94,11 @@ const styles = StyleSheet.create({
         // flex: 1,
          justifyContent: "flex-end",
         alignItems: "center",
-        marginTop: 40,
+        width: 150,
+        marginTop: 100,
       },
       cancel: {
-        alignSelf: 'flex-start',
+        alignSelf: 'flex-end',
       },
       modalView: {
         margin: 20,

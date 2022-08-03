@@ -1,13 +1,21 @@
 import React, {useState} from 'react';
-import { Text, StyleSheet, View, TextInput} from 'react-native';
+import { Text, StyleSheet, View, TextInput, Image} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import colors from '../assets/colors/colors';
+import FontAwesome from 'react-native-vector-icons/FontAwesome';
+FontAwesome.loadFont();
+import emptyImage from '../assets/images/empty image.jpg';
 
 const PostEvent = () => {
   const [title, setTitle] = useState('');
   return (
     <View style={styles.container}>
-      
+      <View style={{ flexDirection: 'row'}}>
+          <Image source={emptyImage} style={styles.profileImage}></Image>
+          <TouchableOpacity style={{marginTop: 80}}>
+                  <FontAwesome name="upload" size={22} color={colors.darkBlue} />
+          </TouchableOpacity>
+      </View>
       <View>
         <TextInput placeholder="Title" style={styles.inputStyle} onChangeText={text => setTitle(text)}/>
         <TextInput placeholder="Organisation/Company" style={styles.inputStyle} />
@@ -52,6 +60,11 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  profileImage: {
+    width: 100,
+    height: 100,
+    borderRadius: 40,
+},
 
   formLabel: {
     fontSize: 20,
