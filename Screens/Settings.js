@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Image,View, CheckBox,SafeAreaView, Text, StyleSheet, ScrollView, ImageBackground, Dimensions, TextInput } from 'react-native';
+import { View,SafeAreaView, Text, StyleSheet, ScrollView, Dimensions } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import colors from '../assets/colors/colors';
 
@@ -80,7 +80,7 @@ const Settings = ({navigation}) => {
                         style={styles.buttonWrapper}
                         onPress={() => alert('You logged out ')}>
                         <Text style={styles.buttonText}>Logout</Text>
-                    </TouchableOpacity> 
+                </TouchableOpacity> 
 
             </View>
             
@@ -97,7 +97,6 @@ const styles = StyleSheet.create({
         marginHorizontal: 30,
         
     },
-    
       item: {
         padding: 10,
         marginVertical: 8,
@@ -126,7 +125,6 @@ const styles = StyleSheet.create({
         color: colors.white,
         marginHorizontal: 6,
     },
-    
 })
 
 export default Settings;

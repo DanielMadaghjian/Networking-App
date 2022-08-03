@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Image, View, Text, Linking, ScrollView } from 'react-native';
+import { StyleSheet, View, ScrollView } from 'react-native';
 import ProfileInfo from '../components/ProfileInfo';
 import ProfileSocials from '../components/ProfileSocials';
 import Options from '../components/Options';
@@ -62,6 +62,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: colors.white,
+        flex: 1
     }
 })
 

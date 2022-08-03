@@ -52,8 +52,7 @@ const Options = ({navigation}) => {
               setModalVisible(!modalVisible);
             }}  
           >
-              <View style={styles.centeredView}>
-                    
+              <View style={styles.ModalPosition}>                   
                 <View style={styles.modalView}>
                       <Pressable
                           onPress={() => setModalVisible(!modalVisible)} 
@@ -75,7 +74,6 @@ const Options = ({navigation}) => {
                 </View>
               </View>
             </Modal>
-            
         </View>
     )   
 }
@@ -90,12 +88,12 @@ const styles = StyleSheet.create({
       title: {
         fontSize: 12,
       },
-      centeredView: {
-        // flex: 1,
-         justifyContent: "flex-end",
+      ModalPosition: {
+        justifyContent: "flex-end",
         alignItems: "center",
         width: 150,
         marginTop: 100,
+        alignSelf: 'flex-end',
       },
       cancel: {
         alignSelf: 'flex-end',
@@ -105,7 +103,6 @@ const styles = StyleSheet.create({
         backgroundColor: "white",
         borderRadius: 20,
         padding: 2,
-        // alignItems: "center",
         shadowColor: "#000",
         shadowOffset: {
           width: 0,

@@ -18,7 +18,7 @@ const ProfileInfo = ({user, navigation}) => {
                             <Text style={styles.roleText}>{user.role}</Text>
                         </View>
                         
-                        <View style = {{marginLeft: 10,}}>
+                        <View style = {{marginTop: 40, marginLeft: 10,}}>
                             <Options navigation={navigation}></Options>
                         </View>
                     </View>
@@ -80,7 +80,7 @@ const styles = StyleSheet.create({
     },
     description: {
         fontSize: 14,
-        color: colors.darkBlue
+        color: colors.lightGrey
     },
     aboutText: {
         fontWeight: 'bold',
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     roleText: {
-        color: 'blue'
+        color: colors.lightGrey
     },
     nameAndRoleWrapper: {
         height: 60,

@@ -11,7 +11,7 @@ const PostEvent = () => {
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row'}}>
-          <Image source={emptyImage} style={styles.profileImage}></Image>
+          <Image source={emptyImage} style={styles.EmptyImage}></Image>
           <TouchableOpacity style={{marginTop: 80}}>
                   <FontAwesome name="upload" size={22} color={colors.darkBlue} />
           </TouchableOpacity>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-  profileImage: {
+  EmptyImage: {
     width: 100,
     height: 100,
     borderRadius: 40,
