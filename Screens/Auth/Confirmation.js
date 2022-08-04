@@ -19,11 +19,12 @@ const Confirmation = ({ navigation, route }) => {
                     placeholder="Code"
                     value={code}
                     style={styles.codeInputStyle}
+                    keyboardType = 'numeric'
                     onChangeText={text => setCode(text)}
                 />
                 <TouchableOpacity
                     onPress={() => {
-                        // Function To send new code
+                        Auth.resendSignUp(email)
                     }}
                 >
                     <Text style={styles.resendText}>Resend Code?</Text>
@@ -35,9 +36,9 @@ const Confirmation = ({ navigation, route }) => {
                     }}>
                     <Text style={styles.buttonText}>Confirm</Text>
                 </TouchableOpacity>
+                {/* If not logged in  */}
                 <TouchableOpacity
                     onPress={() => {
-                        //Way to delete user
                         navigation.goBack()
                     }}>
                     <Text style={styles.changeEmailText}>Change Email</Text>
