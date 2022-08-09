@@ -10,6 +10,7 @@ import About from '../../Screens/About';
 import PrivacyPolicy from '../../Screens/PrivacyPolicy';
 import Help from '../../Screens/Help';
 
+import Confirmation from '../../Screens/Auth/Confirmation';
 
 const Stack = createStackNavigator();
 
@@ -20,8 +21,7 @@ const StackNavigator = () => (
             component={TabNavigator}
             options={{ headerShown: false }}
 
-        ></Stack.Screen>
-
+        />
         <Stack.Screen
             name="EventDetails"
             component={EventDetails}
@@ -62,6 +62,12 @@ const StackNavigator = () => (
             component={Help}
             options={{ headerShown: false, }}
         />
+        <Stack.Screen
+            name="Confirmation"
+            component={Confirmation}
+            options={{ headerShown: false, }}
+        />
+
     </Stack.Navigator>
 )
 

@@ -8,7 +8,6 @@ const Header = ({navigation}) => {
     return (     
             <View>
                 <Text style={styles.introductionTitle}>Hi Daniel!</Text>  
-                
                 <View style={styles.headerWrapper}>                  
                     <Text style={styles.browseEventsTitle}>Explore Events</Text>
                     <TouchableOpacity  onPress={() => navigation.navigate('Login') }> 
