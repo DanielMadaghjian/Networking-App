@@ -31,17 +31,17 @@ const settings = [
     },
     {
         title: "About",
-        navigate: "Home",
+        navigate: "About",
         IconName: "information-outline"
     },
     {
         title: "Privacy Policy",
-        navigate: "Home",
+        navigate: "PrivacyPolicy",
         IconName: "account-lock"
     },
     {
         title: "Help and Support",
-        navigate: "Home",
+        navigate: "Help",
         IconName: "help-circle-outline"
     },
 
@@ -64,8 +64,7 @@ const Settings = ({navigation}) => {
                      {settings.map((setting) => {
                            return (
                            <TouchableOpacity onPress={() => {navigation.navigate(setting.navigate)}} style={[styles.item]}>
-                                <View style={{flexDirection: 'row'}}>
-                                    
+                                <View style={{flexDirection: 'row'}}>                                  
                                         <MaterialCommunityIcons name={setting.IconName} size={32} color={'black'} />
                                          <Text style={[styles.title]}>{setting.title}</Text>
                                          <View style={{right: 10, position: 'absolute'}}>

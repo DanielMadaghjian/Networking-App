@@ -12,10 +12,10 @@ const Header = ({navigation}) => {
                 <View style={styles.headerWrapper}>                  
                     <Text style={styles.browseEventsTitle}>Explore Events</Text>
                     <TouchableOpacity  onPress={() => navigation.navigate('Login') }> 
-                        <Text>Login</Text>
+                        <Text style={{marginHorizontal: 10}}>Login</Text>
                     </TouchableOpacity>
                     <TouchableOpacity  onPress={() => navigation.navigate('Register') }> 
-                        <Text>Register</Text>
+                        <Text style={{marginHorizontal: 10}}>Register</Text>
                     </TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('Profile')}>
                         <Image source={profile} style={styles.profileImage}></Image>

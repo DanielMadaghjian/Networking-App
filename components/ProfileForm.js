@@ -27,7 +27,6 @@ const ProfileForm = ({user, navigation}) => {
                 <Text style={styles.ProfileText}>Profile</Text>  
                 <View style={styles.HeaderView}>
                     <TouchableOpacity
-                        style={styles.backIcon}
                         onPress={() => navigation.goBack()}>
                         <Entypo name="chevron-left" size={32} color={colors.white} />
                     </TouchableOpacity>

@@ -6,6 +6,10 @@ import Register from '../../Screens/Auth/Register';
 import {createStackNavigator} from '@react-navigation/stack';
 import EditProfile from '../../Screens/EditProfile';
 import Settings from '../../Screens/Settings';
+import About from '../../Screens/About';
+import PrivacyPolicy from '../../Screens/PrivacyPolicy';
+import Help from '../../Screens/Help';
+
 
 const Stack = createStackNavigator();
 
@@ -43,7 +47,21 @@ const StackNavigator = () => (
             component={Settings}
             options={{ headerShown: false, }}
         />
-
+        <Stack.Screen
+            name="About"
+            component={About}
+            options={{ headerShown: false, }}
+        />
+         <Stack.Screen
+            name="PrivacyPolicy"
+            component={PrivacyPolicy}
+            options={{ headerShown: false, }}
+        />
+        <Stack.Screen
+            name="Help"
+            component={Help}
+            options={{ headerShown: false, }}
+        />
     </Stack.Navigator>
 )
 
