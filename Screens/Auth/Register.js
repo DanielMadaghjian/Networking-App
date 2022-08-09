@@ -1,9 +1,11 @@
 import { Text, StyleSheet, View, TextInput, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from "react-native"
 import { Entypo } from "react-native-vector-icons/Entypo"
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { useState } from "react"
 import backgroundImage from '../../assets/images/backgroundImage.jpg'
 import colors from "../../assets/colors/colors"
 import signUp from "../../authLogic/SignUp"
+import linkedinAutoFill from "../../authLogic/linkedinAutoFill"
 
 const height = Dimensions.get('window').height;
 
@@ -31,6 +33,11 @@ const Register = ({ navigation }) => {
                     <Text style={styles.createAccountText}>Create Account</Text>
                 </View>
                 <View style={styles.formWrapper}>
+                    <FontAwesome.Button style={styles.socialCard} name={'linkedin'} backgroundColor={colors.linkedin} onPress={() => { 
+                        // linkedinAutoFill(setFirstName,setLastName,setEmail,setOccupation)
+                     }}>
+                        Autofill using Linkedin
+                    </FontAwesome.Button>
                     <View style={styles.nameWrapper}>
                         <TextInput
                             placeholder="First name"
@@ -84,7 +91,7 @@ const Register = ({ navigation }) => {
                                     'password': password
                                 }
                                 signUp(user, navigation);
-                                
+
                             }
                             else {
                                 alert('Passwords do not match')
@@ -182,6 +189,13 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         color: 'red',
         marginTop: 40,
+    },
+    socialCard: {
+        textTransform: 'capitalize',
+        width: 300,
+        marginBottom: 5,
+        textAlign: 'center',
+        textAlignVertical: 'center',
     },
 })
 export default Register
