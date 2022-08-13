@@ -1,12 +1,17 @@
-import { Auth } from 'aws-amplify';
+// import { Auth } from 'aws-amplify';
 
-async function isAuthenticated() {
-    try {
-        await Auth.currentUserInfo();
-        return true;
-    } catch {
-        return false;
-    }
-}
+// const isAuthenticated = () => {
+//     Auth.currentUserInfo()
+//         .then((value) => {
+//             if(value) return true;
+//             else return false;
+//         } )
+//         .catch((e) => {
+//                 alert(e)
+//                 return true;
+//             } 
+//         )
 
-export default isAuthenticated
+// }
+
+// export default isAuthenticated

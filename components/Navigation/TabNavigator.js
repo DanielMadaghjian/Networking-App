@@ -1,7 +1,7 @@
 import Home from '../../Screens/Home'
 import PostEvent from '../../Screens/PostEvent';
 import Profile from '../../Screens/Profile';
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StyleSheet } from 'react-native';
 
 //https://oblador.github.io/react-native-vector-icons/
@@ -12,6 +12,8 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '../../assets/colors/colors';
 import Restricted from '../../Screens/Auth/Restricted';
 import isAuthenticated from '../../authLogic/isAuthenticated';
+import { useState } from 'react';
+
 
 
 Entypo.loadFont();
@@ -20,62 +22,66 @@ MaterialIcons.loadFont();
 Ionicons.loadFont();
 
 const Tab = createBottomTabNavigator();
-var isLoggedIn
 
-isAuthenticated().then((value) => isLoggedIn = value  );
 
 
 const TabNavigator = () => {
-  console.log(isLoggedIn)
+  // console.log(isLoggedIn)
+  const [userToken, setUserToken] = useState(null);
+  const userLogin = async (user) => {
+    setUserToken(user.signInUserSession.accessToken.jwtToken)
+  }
+
   return (
     <Tab.Navigator
-    tabBarOptions={{
-      style: styles.tabBar,
-      activeTintColor: colors.darkBlue,
-      inactiveTintColor: colors.lightGrey,
-      showLabel: false,
-    }}>  
+      tabBarOptions={{
+        style: styles.tabBar,
+        activeTintColor: colors.darkBlue,
+        inactiveTintColor: colors.lightGrey,
+        showLabel: false,
+      }}>
       <Tab.Screen
         name="Home"
         component={Home}
         options={{
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({ color }) => (
             <Entypo name="home" size={32} color={color} />
           ),
         }}
+        initialParams={{userLogin: userLogin}}
       />
       <Tab.Screen
         name="PostEvent"
-        component={isLoggedIn ? PostEvent : Restricted}
+        component={userToken ? PostEvent : Restricted}
         options={{
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({ color }) => (
             <Ionicons name="create-sharp" size={32} color={color} />
           ),
           title: 'Post Event'
-        }}        
+        }}
       />
       <Tab.Screen
         name="Profile"
-        component={isLoggedIn ? Profile : Restricted}  
+        component={userToken ? Profile : Restricted}
         options={{
-          tabBarIcon: ({color}) => (
+          tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" size={32} color={color} />
           ),
-        }}     
+        }}
       />
-       
+
     </Tab.Navigator>
   );
 };
 
 const styles = StyleSheet.create({
-    tabBar: {
-      backgroundColor: colors.white,
-      borderTopLeftRadius: 20,
-      borderTopRightRadius: 20,
-    },
-    
-   
-  });
+  tabBar: {
+    backgroundColor: colors.white,
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+  },
+
+
+});
 
 export default TabNavigator;

@@ -8,7 +8,8 @@ import colors from "../../assets/colors/colors";
 import confirmUser from "../../authLogic/confirmUser";
 const Confirmation = ({ navigation, route }) => {
     const [code, setCode] = useState('')
-    const email = route.params.email
+    const email = route.params.email;
+    const login = route.params.login;
     return (
         <View style={styles.container}>
             <View style={styles.headerWrapper}>
@@ -19,7 +20,7 @@ const Confirmation = ({ navigation, route }) => {
                     placeholder="Code"
                     value={code}
                     style={styles.codeInputStyle}
-                    keyboardType = 'numeric'
+                    keyboardType='numeric'
                     onChangeText={text => setCode(text)}
                 />
                 <TouchableOpacity
@@ -32,16 +33,15 @@ const Confirmation = ({ navigation, route }) => {
                 <TouchableOpacity
                     style={styles.buttonWrapper}
                     onPress={() => {
-                        confirmUser(email,code,navigation)
+                        confirmUser(email, code, navigation)
                     }}>
                     <Text style={styles.buttonText}>Confirm</Text>
                 </TouchableOpacity>
-                {/* If not logged in  */}
                 <TouchableOpacity
                     onPress={() => {
                         navigation.goBack()
                     }}>
-                    <Text style={styles.changeEmailText}>Change Email</Text>
+                    <Text style={styles.changeEmailText}>{login ? 'Go Back ':'Change Email'}</Text>
                 </TouchableOpacity>
             </View>
         </ View>
@@ -54,8 +54,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.white,
         textAlign: 'center',
-        justifyContent:'center',
-        alignItems:'center'
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     codeInputStyle: {
         marginTop: 20,
@@ -75,7 +75,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     resendText: {
-        marginTop:20,
+        marginTop: 20,
         fontSize: 18,
         color: 'red'
     },

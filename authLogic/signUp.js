@@ -34,9 +34,9 @@ const validateEmail = (email) => {
     return false;
 }
 
-const signUp = (user, navigation) => {
+const signUp = async (user, navigation) => {
     if (validateAttributes(user) && (validateEmail(user.email) && validatePassword(user.password))) {
-        Auth.signUp({
+        await Auth.signUp({
             username: user.email,
             password: user.password,
             attributes: {
@@ -45,7 +45,11 @@ const signUp = (user, navigation) => {
 
         })
             .then(() => {
-                navigation.navigate('Confirmation', {email: user.email})
+                navigation.navigate('Confirmation',
+                    {
+                        email: user.email,
+                        login: false
+                    })
             }
             )
             .catch(e => {
