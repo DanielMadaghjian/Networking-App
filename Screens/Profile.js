@@ -13,9 +13,114 @@ const Profile = ({navigation}) => {
          image: require('../assets/images/person.png'),
         "role": 'UX Designer',
         "bio": 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-        "eventsAttended": 250,
-        "eventsPosted": 50,
-        
+        "eventsAttendedCount": 250,
+        "eventsPostedCount": 50,
+        "eventsAttended": [
+            {
+                id: 'discover-1',
+                title: 'Dublin Tech Summit',
+                location: 'Dogpatch Labs',
+                date: '13/06/22-18/06/22',
+                time: '9am-3pm',
+                price: 'Free',
+                image: require('../assets/images/DublinTechSummit.png'),
+                description:
+                  "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+                "attendees": [
+                    {
+                      "name": 'Daniel Madaghjian',
+                    },
+                    {
+                      "name": 'Diarmuid McGonagle',
+                    },
+                    {
+                      "name": 'Ryan Idowu',
+                    },
+      
+                ]
+            },
+            {
+                id: 'discover-2',
+                title: 'Gerry Cinnamon',
+                location: 'Malahide Castle',
+                date: '18/06/22',
+                time: '7:30pm-10:30pm',
+                price: 'Free',
+                image: require('../assets/images/GerryCinnamon.png'),
+                description:
+                  "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+                  "attendees": [
+                    {
+                      "name": 'Daniel Madaghjian',
+                    },
+                    {
+                      "name": 'Diarmuid McGonagle',
+                    },
+                    {
+                      "name": 'Ryan Idowu',
+                    },
+      
+                ]
+              },
+              {
+                id: 'discover-3',
+                title: 'Dans 21st',
+                location: '24 Joy Street',
+                date: '13/06/22',
+                time: '7:30pm-12am',
+                price: 'Free',
+                image: require('../assets/images/birthday.png'),
+                description:
+                  "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+                  "attendees": [
+                    {
+                      "name": 'Daniel Madaghjian',
+                    },
+                    {
+                      "name": 'Diarmuid McGonagle',
+                    },
+                    {
+                      "name": 'Ryan Idowu',
+                    },
+      
+                ]
+              },  
+        ],
+        "EventsPosted": [
+            {
+                id: 'recent-1',
+                title: 'TES Talk',
+                location: 'Trinity College Dublin',
+                date: '18/06/22',
+                time: '9am-3pm',
+                price: 'Free',
+                image: require('../assets/images/TES.png'),
+                description:
+                  "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+            },
+            {
+                id: 'recent-2',
+                title: 'Longitude Pre Drinks',
+                location: '24 Joy Street',
+                date: '18/06/22',
+                time: '10:30am-12:30am',
+                price: 'Free',
+                image: require('../assets/images/longitude.png'),
+                description:
+                  "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+              },
+              {
+                id: 'recent-3',
+                title: 'Irish Derby Festival',
+                location: 'Curragh Racecourse Kildare',
+                date: '25/06/22',
+                time: '2:30pm-8pm',
+                price: 'Free',
+                image: require('../assets/images/derby.png'),
+                description:
+                  "An ideal introduction to sea kayaking around the stunning historical Islands of Tofino's harbour. Come explore the spectacular scenery of the area and learn what makes the area so fascinating.",
+              },
+        ],
         "socials": [
             {
                 "type": 'linkedin',
