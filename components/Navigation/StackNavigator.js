@@ -64,16 +64,7 @@ const StackNavigator = () => (
             component={Help}
             options={{ headerShown: false, }}
         />
-        <Stack.Screen
-            name="UserEventsAttended"
-            component={UserEventsAttended}
-            options={{ headerShown: false, }}
-        />
-        <Stack.Screen
-            name="UserEventsPosted"
-            component={UserEventsPosted}
-            options={{ headerShown: false, }}
-        />
+        
     </Stack.Navigator>
 )
 
