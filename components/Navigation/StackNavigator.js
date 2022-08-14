@@ -9,6 +9,8 @@ import Settings from '../../Screens/Settings';
 import About from '../../Screens/About';
 import PrivacyPolicy from '../../Screens/PrivacyPolicy';
 import Help from '../../Screens/Help';
+import UserEventsAttended from '../../Screens/UserEventsAttended';
+import UserEventsPosted from '../../Screens/UserEventsPosted';
 
 import Confirmation from '../../Screens/Auth/Confirmation';
 
@@ -62,6 +64,7 @@ const StackNavigator = () => (
             component={Help}
             options={{ headerShown: false, }}
         />
+
         <Stack.Screen
             name="Confirmation"
             component={Confirmation}
@@ -77,6 +80,7 @@ const StackNavigator = () => (
             component={UserEventsAttended}
             options={{ headerShown: false, }}
         />
+
 
     </Stack.Navigator>
 )

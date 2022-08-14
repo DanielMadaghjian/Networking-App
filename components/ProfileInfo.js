@@ -27,14 +27,18 @@ const ProfileInfo = ({user, navigation}) => {
                         <Text numberOfLines={4} ellipsizeMode="tail" style={styles.description}>{user.bio}</Text>
                     </View>
                     <View style={styles.statsWrapper}>
-                        <View style={styles.statsCard}>
-                            <Text style={styles.stat}>{user.eventsAttended}</Text>
-                            <Text style={styles.statName}>Events Attended</Text>
-                        </View>
-                        <View style={styles.statsCard}>
-                            <Text style={styles.stat}>{user.eventsPosted}</Text>
-                            <Text style={styles.statName}>Events Attended</Text>
-                        </View>
+                        <TouchableOpacity  onPress={() => navigation.navigate('UserEventsAttended')}>
+                            <View style={styles.statsCard}>
+                                <Text style={styles.stat}>{user.eventsAttendedCount}</Text>
+                                <Text style={styles.statName}>Events Attended</Text>
+                            </View>
+                        </TouchableOpacity>
+                        <TouchableOpacity  onPress={() => navigation.navigate('UserEventsPosted')}>
+                            <View style={styles.statsCard}>
+                                <Text style={styles.stat}>{user.eventsPostedCount}</Text>
+                                <Text style={styles.statName}>Events Posted</Text>
+                            </View>
+                        </TouchableOpacity>
             </View>
         </View>
     );
