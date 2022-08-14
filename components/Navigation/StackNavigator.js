@@ -12,6 +12,7 @@ import Help from '../../Screens/Help';
 import UserEventsAttended from '../../Screens/UserEventsAttended';
 import UserEventsPosted from '../../Screens/UserEventsPosted';
 
+import Confirmation from '../../Screens/Auth/Confirmation';
 
 const Stack = createStackNavigator();
 
@@ -22,8 +23,7 @@ const StackNavigator = () => (
             component={TabNavigator}
             options={{ headerShown: false }}
 
-        ></Stack.Screen>
-
+        />
         <Stack.Screen
             name="EventDetails"
             component={EventDetails}
@@ -64,7 +64,24 @@ const StackNavigator = () => (
             component={Help}
             options={{ headerShown: false, }}
         />
-        
+
+        <Stack.Screen
+            name="Confirmation"
+            component={Confirmation}
+            options={{ headerShown: false, }}
+        />
+        <Stack.Screen
+            name="UserEventsPosted"
+            component={UserEventsPosted}
+            options={{ headerShown: false, }}
+        />
+        <Stack.Screen
+            name="UserEventsAttended"
+            component={UserEventsAttended}
+            options={{ headerShown: false, }}
+        />
+
+
     </Stack.Navigator>
 )
 

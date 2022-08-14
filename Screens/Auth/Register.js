@@ -1,17 +1,21 @@
 import { Text, StyleSheet, View, TextInput, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from "react-native"
 import { Entypo } from "react-native-vector-icons/Entypo"
+import FontAwesome from 'react-native-vector-icons/FontAwesome'
 import { useState } from "react"
 import backgroundImage from '../../assets/images/backgroundImage.jpg'
 import colors from "../../assets/colors/colors"
+import signUp from "../../authLogic/SignUp"
+import linkedinAutoFill from "../../authLogic/linkedinAutoFill"
 
 const height = Dimensions.get('window').height;
 
 const Register = ({ navigation }) => {
-    const [firstName, setFirstName] = useState();
-    const [lastName, setLastName] = useState();
-    const [email, setEmail] = useState();
-    const [role, setRole] = useState();
-    const [password, setPassword] = useState();
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [occupation, setOccupation] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmedPass, setConfirmedPassword] = useState('');
 
     return (
         <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -29,6 +33,11 @@ const Register = ({ navigation }) => {
                     <Text style={styles.createAccountText}>Create Account</Text>
                 </View>
                 <View style={styles.formWrapper}>
+                    <FontAwesome.Button style={styles.socialCard} name={'linkedin'} backgroundColor={colors.linkedin} onPress={() => { 
+                        // linkedinAutoFill(setFirstName,setLastName,setEmail,setOccupation)
+                     }}>
+                        Autofill using Linkedin
+                    </FontAwesome.Button>
                     <View style={styles.nameWrapper}>
                         <TextInput
                             placeholder="First name"
@@ -45,10 +54,10 @@ const Register = ({ navigation }) => {
                     </View>
                     {/* Should be a dropdown */}
                     <TextInput
-                        placeholder="Role"
-                        value={role}
+                        placeholder="Occupation"
+                        value={occupation}
                         style={styles.inputStyle}
-                        onChangeText={text => setRole(text)}
+                        onChangeText={text => setOccupation(text)}
                     />
                     <TextInput
                         placeholder="Email"
@@ -68,18 +77,26 @@ const Register = ({ navigation }) => {
                         secureTextEntry={true}
                         placeholder="Confirm password"
                         style={styles.inputStyle}
+                        onChangeText={text => setConfirmedPassword(text)}
                     />
                     <TouchableOpacity
                         style={styles.buttonWrapper}
                         onPress={() => {
-                            const user = {
-                                'firstName': firstName,
-                                'lastName': lastName,
-                                'email': email,
-                                'password': password
+                            if (confirmedPass === password) {
+                                const user = {
+                                    'firstName': firstName,
+                                    'lastName': lastName,
+                                    'email': email,
+                                    'occupation': occupation,
+                                    'password': password
+                                }
+                                signUp(user, navigation);
+
                             }
-                            alert('You registered! ');
-                            console.log(user)
+                            else {
+                                alert('Passwords do not match')
+                            }
+
                         }}>
                         <Text style={styles.buttonText}>Register!!</Text>
                     </TouchableOpacity>
@@ -172,6 +189,13 @@ const styles = StyleSheet.create({
         marginLeft: 20,
         color: 'red',
         marginTop: 40,
+    },
+    socialCard: {
+        textTransform: 'capitalize',
+        width: 300,
+        marginBottom: 5,
+        textAlign: 'center',
+        textAlignVertical: 'center',
     },
 })
 export default Register
