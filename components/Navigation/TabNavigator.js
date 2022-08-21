@@ -11,8 +11,9 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '../../assets/colors/colors';
 import Restricted from '../../Screens/Auth/Restricted';
-import isAuthenticated from '../../authLogic/isAuthenticated';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { Auth } from 'aws-amplify';
+import HomeLoggedOut from '../../Screens/HomeLoggedOut';
 
 
 
@@ -27,11 +28,15 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
   // console.log(isLoggedIn)
-  const [userToken, setUserToken] = useState(null);
-  const userLogin = async (user) => {
-    setUserToken(user.signInUserSession.accessToken.jwtToken)
-  }
-
+  // const [user, setUser] = useState(null);
+  // Auth.currentAuthenticatedUser()
+  // .then((value) => {
+  //   setUser(value)
+  // })
+  // .catch(() => {
+  //   setUser(null)
+  // })
+  // console.log(user)
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -42,17 +47,16 @@ const TabNavigator = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={Home}
+        component={user ? Home : HomeLoggedOut}
         options={{
           tabBarIcon: ({ color }) => (
             <Entypo name="home" size={32} color={color} />
           ),
         }}
-        initialParams={{userLogin: userLogin}}
       />
       <Tab.Screen
         name="PostEvent"
-        component={userToken ? PostEvent : Restricted}
+        component={user ? PostEvent : Restricted}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="create-sharp" size={32} color={color} />
@@ -62,7 +66,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={userToken ? Profile : Restricted}
+        component={user ? Profile : Restricted}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" size={32} color={color} />
