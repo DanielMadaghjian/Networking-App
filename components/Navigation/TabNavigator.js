@@ -11,9 +11,10 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '../../assets/colors/colors';
 import Restricted from '../../Screens/Auth/Restricted';
-import { useEffect, useState } from 'react';
+import { useEffect, useState,useContext } from 'react';
 import { Auth } from 'aws-amplify';
 import HomeLoggedOut from '../../Screens/HomeLoggedOut';
+import { AuthContext } from '../../authLogic/AuthProvider';
 
 
 
@@ -27,16 +28,8 @@ const Tab = createBottomTabNavigator();
 
 
 const TabNavigator = () => {
-  // console.log(isLoggedIn)
-  // const [user, setUser] = useState(null);
-  // Auth.currentAuthenticatedUser()
-  // .then((value) => {
-  //   setUser(value)
-  // })
-  // .catch(() => {
-  //   setUser(null)
-  // })
-  // console.log(user)
+
+  
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -47,7 +40,7 @@ const TabNavigator = () => {
       }}>
       <Tab.Screen
         name="Home"
-        component={user ? Home : HomeLoggedOut}
+        component={Home}
         options={{
           tabBarIcon: ({ color }) => (
             <Entypo name="home" size={32} color={color} />
@@ -56,7 +49,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="PostEvent"
-        component={user ? PostEvent : Restricted}
+        component={PostEvent}// Or restricted
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="create-sharp" size={32} color={color} />
@@ -66,7 +59,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={user ? Profile : Restricted}
+        component={Profile}// Or restricted 
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" size={32} color={color} />

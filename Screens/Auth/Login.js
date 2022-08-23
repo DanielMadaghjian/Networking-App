@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 
 import { View, CheckBox, Text, StyleSheet, ScrollView, ImageBackground, Dimensions, TextInput } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -6,7 +6,8 @@ import colors from '../../assets/colors/colors';
 import backgroundImage from '../../assets/images/backgroundImage.jpg';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import signIn from '../../authLogic/signIn';
+import { AuthContext } from '../../authLogic/AuthProvider';
+
 MaterialCommunityIcons.loadFont();
 
 const height = Dimensions.get('window').height;
@@ -17,6 +18,7 @@ const Login = ({ navigation }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
+    const { signIn } = useContext(AuthContext);
     return (
 
         <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -74,7 +76,7 @@ const Login = ({ navigation }) => {
                         </View>
                         <TouchableOpacity
                             style={styles.buttonWrapper}
-                            onPress={() => signIn(email, password,navigation)}>
+                            onPress={() => signIn({email, password},navigation)}>
                             <Text style={styles.buttonText}>Login!</Text>
                         </TouchableOpacity>
                     </View>

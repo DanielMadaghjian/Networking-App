@@ -15,7 +15,7 @@ const Home = ({navigation, route}) => {
         <View style={styles.container}>
             <ScrollView>
                 {/**HEADER */}
-                <Header navigation={navigation} loggedIn = {true}></Header>
+                <Header navigation={navigation}></Header>
 
                 {/**EXPLORE EVENTS */}
                 <ExploreEvents navigation={navigation}></ExploreEvents>

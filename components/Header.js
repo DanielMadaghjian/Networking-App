@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 
 import profile from '../assets/images/person.png';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import signOut from '../authLogic/signOut.js';
+import { AuthContext } from '../authLogic/AuthProvider';
 
 
-const Header = ({ navigation, loggedIn }) => {
+const Header = ({ navigation }) => {
+    const {isLoggedIn}  = useContext(AuthContext)
     return (
         <View>
             <Text style={styles.introductionTitle}>Hi Daniel!</Text>
             <View style={styles.headerWrapper}>
                 <Text style={styles.browseEventsTitle}>Explore Events</Text>
-                {loggedIn ?
+                {isLoggedIn ?
                     <View style={{ flexDirection: 'row' }}>
                         <TouchableOpacity onPress={() => { signOut() }}>
                             <Text style={{ marginHorizontal: 10 }}>Log Out</Text>
