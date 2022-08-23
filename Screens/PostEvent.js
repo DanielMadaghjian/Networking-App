@@ -54,11 +54,15 @@ const handleClick = async () => {
       setTime('');
       setPrice('');
       setDescription('');
-    } else {
+    } 
+    else if(response.status === 200) {
+      alert("You have posted the event: " + title)
+    }
+    else {
       throw new Error("An error has occurred ");
     }
   } catch (error) {
-    // alert("An error has occurred");
+     alert("An error has occurred");
     
   }
 };
