@@ -1,11 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import { Text, StyleSheet, View, TextInput, Image, Alert} from 'react-native';
+import { Text, StyleSheet, View, TextInput, Image, Platform, Alert} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 import colors from '../assets/colors/colors';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 FontAwesome.loadFont();
 import emptyImage from '../assets/images/empty image.jpg';
+import * as ImagePicker from 'expo-image-picker';
 
 const PostEvent = () => {
   console.log(title, organisation, location, date, time, price, description)
@@ -34,6 +35,7 @@ const PostEvent = () => {
 //   catch (error) {
 //     console.error(error);
 // }
+
 const handleClick = async () => {
  
   try {
@@ -66,8 +68,7 @@ const handleClick = async () => {
     
   }
 };
- 
-
+  const [image, setImage] = useState(emptyImage);
   const [title, setTitle] = useState('');
   const [organisation, setOrganisation] = useState('');
   const [location, setLocation] = useState('');
@@ -76,12 +77,27 @@ const handleClick = async () => {
   const [price, setPrice] = useState('');
   const [description, setDescription] = useState('');
   
+  const pickImage = async () => {
+    // No permissions request is necessary for launching the image library
+    let result = await ImagePicker.launchImageLibraryAsync({
+      mediaTypes: ImagePicker.MediaTypeOptions.All,
+      allowsEditing: true,
+      aspect: [4, 3],
+      quality: 1,
+    });
+
+    console.log(result);
+
+    if (!result.cancelled) {
+      setImage(result.uri);
+    }
+  };
 
   return (
     <View style={styles.container}>
       <View style={{ flexDirection: 'row'}}>
-          <Image source={emptyImage} style={styles.EmptyImage}></Image>
-          <TouchableOpacity style={{marginTop: 80}}>
+          {image && <Image source={{ uri: image }} style={styles.EmptyImage} />}
+          <TouchableOpacity style={{marginTop: 80,}} onPress= {() => pickImage()}>
                   <FontAwesome name="upload" size={22} color={colors.darkBlue} />
           </TouchableOpacity>
       </View>
