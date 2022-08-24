@@ -1,11 +1,11 @@
 import { Text, StyleSheet, View, TextInput, ScrollView, TouchableOpacity, Dimensions, ImageBackground } from "react-native"
 import { Entypo } from "react-native-vector-icons/Entypo"
 import FontAwesome from 'react-native-vector-icons/FontAwesome'
-import { useState } from "react"
+import { useContext, useState } from "react"
 import backgroundImage from '../../assets/images/backgroundImage.jpg'
 import colors from "../../assets/colors/colors"
-import signUp from "../../authLogic/SignUp"
 import linkedinAutoFill from "../../authLogic/linkedinAutoFill"
+import { AuthContext } from "../../authLogic/AuthProvider"
 
 const height = Dimensions.get('window').height;
 
@@ -16,6 +16,8 @@ const Register = ({ navigation }) => {
     const [occupation, setOccupation] = useState('');
     const [password, setPassword] = useState('');
     const [confirmedPass, setConfirmedPassword] = useState('');
+
+    const { signUp } = useContext(AuthContext)
 
     return (
         <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>

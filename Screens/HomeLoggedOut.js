@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import {View, Text, StyleSheet, ScrollView} from 'react-native';
 
 import Header from '../components/Header';
@@ -10,12 +10,12 @@ import Entypo from 'react-native-vector-icons/Entypo';
 
 Entypo.loadFont();
 
-const Home = ({navigation, route}) => {
+const HomeLoggedOut = ({navigation, route}) => {
     return (
         <View style={styles.container}>
             <ScrollView>
                 {/**HEADER */}
-                <Header navigation={navigation}></Header>
+                <Header navigation={navigation} loggedIn = {false}></Header>
 
                 {/**EXPLORE EVENTS */}
                 <ExploreEvents navigation={navigation}></ExploreEvents>
@@ -34,4 +34,4 @@ const styles = StyleSheet.create({
     },     
 })
 
-export default Home;
+export default HomeLoggedOut;

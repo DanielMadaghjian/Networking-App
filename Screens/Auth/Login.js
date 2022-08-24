@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useContext } from 'react';
 
 import { View, CheckBox, Text, StyleSheet, ScrollView, ImageBackground, Dimensions, TextInput } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
@@ -6,6 +6,8 @@ import colors from '../../assets/colors/colors';
 import backgroundImage from '../../assets/images/backgroundImage.jpg';
 
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import { AuthContext } from '../../authLogic/AuthProvider';
+
 MaterialCommunityIcons.loadFont();
 
 const height = Dimensions.get('window').height;
@@ -13,7 +15,10 @@ const width = Dimensions.get('window').width;
 
 const Login = ({ navigation }) => {
     const [isSelected, setSelection] = useState(false);
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
+    const { signIn } = useContext(AuthContext);
     return (
 
         <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
@@ -35,59 +40,66 @@ const Login = ({ navigation }) => {
                         Don't have an account?
                         <TouchableOpacity onPress={() =>
                             navigation.navigate('Register')
-                            } >
+                        } >
                             <Text style={styles.registerNowText}>{'  '} Register Now</Text>
                         </TouchableOpacity>
-                </Text>
-            </View>
-            <View style={styles.formWrapper}>
-                <TextInput placeholder="Email" style={styles.inputStyle} />
-                <TextInput
-                    secureTextEntry={true}
-                    placeholder="Password"
-                    style={styles.inputStyle}
-                />
-
-
-                <View style={styles.forgotPassView}>
-                    <View style={styles.checkboxContainer}>
-                        <CheckBox
-                            value={isSelected}
-                            onValueChange={setSelection}
-                            style={styles.checkbox}
-                        />
-                        <Text style={styles.label}>Remember Me</Text>
-                        <TouchableOpacity>
-                            <Text style={styles.label}>Forgot Password</Text>
-                        </TouchableOpacity>
-
-                    </View>
-                    <TouchableOpacity
-                        style={styles.buttonWrapper}
-                        onPress={() => alert('You logged in! ')}>
-                        <Text style={styles.buttonText}>Login!</Text>
-                    </TouchableOpacity>
+                    </Text>
                 </View>
+                <View style={styles.formWrapper}>
+                    <TextInput
+                        placeholder="Email"
+                        style={styles.inputStyle}
+                        value={email}
+                        onChangeText={text => setEmail(text)}
+                    />
+                    <TextInput
+                        secureTextEntry={true}
+                        placeholder="Password"
+                        style={styles.inputStyle}
+                        value={password}
+                        onChangeText={text => setPassword(text)}
+                    />
 
-                <View style={{ flex: 1 }}>
-                    <Text style={{ alignSelf: 'center', marginTop: 5 }}>or Login With</Text>
-                    <View style={styles.socialLoginView}>
-                        <TouchableOpacity style={{ marginHorizontal: 20 }}>
-                            <MaterialCommunityIcons name="facebook" size={42} color={colors.darkBlue} />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ marginHorizontal: 20 }}>
-                            <MaterialCommunityIcons name="twitter" size={42} color={colors.lightBlue} />
-                        </TouchableOpacity>
-                        <TouchableOpacity style={{ marginHorizontal: 20 }}>
-                            <MaterialCommunityIcons name="gmail" size={42} color='red' />
+
+                    <View style={styles.forgotPassView}>
+                        <View style={styles.checkboxContainer}>
+                            <CheckBox
+                                value={isSelected}
+                                onValueChange={setSelection}
+                                style={styles.checkbox}
+                            />
+                            <Text style={styles.label}>Remember Me</Text>
+                            <TouchableOpacity>
+                                <Text style={styles.label}>Forgot Password</Text>
+                            </TouchableOpacity>
+
+                        </View>
+                        <TouchableOpacity
+                            style={styles.buttonWrapper}
+                            onPress={() => signIn({email, password},navigation)}>
+                            <Text style={styles.buttonText}>Login!</Text>
                         </TouchableOpacity>
                     </View>
+
+                    <View style={{ flex: 1 }}>
+                        <Text style={{ alignSelf: 'center', marginTop: 5 }}>or Login With</Text>
+                        <View style={styles.socialLoginView}>
+                            <TouchableOpacity style={{ marginHorizontal: 20 }}>
+                                <MaterialCommunityIcons name="facebook" size={42} color={colors.darkBlue} />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{ marginHorizontal: 20 }}>
+                                <MaterialCommunityIcons name="twitter" size={42} color={colors.lightBlue} />
+                            </TouchableOpacity>
+                            <TouchableOpacity style={{ marginHorizontal: 20 }}>
+                                <MaterialCommunityIcons name="gmail" size={42} color='red' />
+                            </TouchableOpacity>
+                        </View>
+                    </View>
+
                 </View>
 
+
             </View>
-
-
-        </View>
         </ScrollView >
     );
 };

@@ -1,30 +1,34 @@
 import { Auth } from "aws-amplify";
 import { Header } from "aws-amplify-react-native/dist/AmplifyUI";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { StyleSheet, View, Text } from "react-native"
 import { TextInput, TouchableOpacity } from "react-native-gesture-handler/lib/commonjs";
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import colors from "../../assets/colors/colors";
-import confirmUser from "../../authLogic/confirmUser";
+import { AuthContext } from "../../authLogic/AuthProvider";
+
 const Confirmation = ({ navigation, route }) => {
     const [code, setCode] = useState('')
-    const email = route.params.email
+    const user = route.params.user;
+    const login = route.params.login;
+    const {confirmUser} = useContext(AuthContext)
+
     return (
         <View style={styles.container}>
             <View style={styles.headerWrapper}>
                 <MaterialCommunityIcons name="email-check" size={300} color={colors.darkBlue} ></MaterialCommunityIcons>
                 <Header>Confirm Your Email Address</Header>
-                <Text>A code was sent to {email} please enter it below to confirm your email address</Text>
+                <Text>A code was sent to {user.email} please enter it below to confirm your email address</Text>
                 <TextInput
                     placeholder="Code"
                     value={code}
                     style={styles.codeInputStyle}
-                    keyboardType = 'numeric'
+                    keyboardType='numeric'
                     onChangeText={text => setCode(text)}
                 />
                 <TouchableOpacity
                     onPress={() => {
-                        Auth.resendSignUp(email)
+                        Auth.resendSignUp(user.email)
                     }}
                 >
                     <Text style={styles.resendText}>Resend Code?</Text>
@@ -32,16 +36,15 @@ const Confirmation = ({ navigation, route }) => {
                 <TouchableOpacity
                     style={styles.buttonWrapper}
                     onPress={() => {
-                        confirmUser(email,code,navigation)
+                        confirmUser(user.email, code, navigation)
                     }}>
                     <Text style={styles.buttonText}>Confirm</Text>
                 </TouchableOpacity>
-                {/* If not logged in  */}
                 <TouchableOpacity
                     onPress={() => {
                         navigation.goBack()
                     }}>
-                    <Text style={styles.changeEmailText}>Change Email</Text>
+                    <Text style={styles.changeEmailText}>{login ? 'Go Back ':'Change Email'}</Text>
                 </TouchableOpacity>
             </View>
         </ View>
@@ -54,8 +57,8 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.white,
         textAlign: 'center',
-        justifyContent:'center',
-        alignItems:'center'
+        justifyContent: 'center',
+        alignItems: 'center'
     },
     codeInputStyle: {
         marginTop: 20,
@@ -75,7 +78,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     resendText: {
-        marginTop:20,
+        marginTop: 20,
         fontSize: 18,
         color: 'red'
     },
