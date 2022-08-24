@@ -9,17 +9,17 @@ const Restricted = ({ navigation }) => {
                 <Text style={styles.backText} >Go Back</Text>
             </TouchableOpacity>
             <View style={styles.headerWrapper}>
-                Login or Register to access this page
+                <Text style={styles.headerText}>Login or Register to access this page</Text>
             </View>
             <View style={styles.restrictWrapper}>
                 <TouchableOpacity onPress = {() => navigation.navigate('Login')}>
                     <View style={styles.button}>
-                        Log in
+                        <Text style={styles.buttonText}>Log in</Text>
                     </View>
                 </TouchableOpacity>
                 <TouchableOpacity onPress = {() => navigation.navigate('Register')}>
                     <View style={styles.button}>
-                        Register
+                       <Text style={styles.buttonText}>Register</Text> 
                     </View>
                 </TouchableOpacity>
             </View>
@@ -31,6 +31,8 @@ const styles = StyleSheet.create({
     headerWrapper: {
         textAlign: 'center',
         marginTop: '4rem',
+    },
+    headerText : {
         fontSize: '2rem'
     },
     restrictWrapper: {
@@ -44,8 +46,10 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         width: '15rem',
         textAlign: 'center',
-        fontSize: '3rem',
         marginBottom: '0.5rem',
+    },
+    buttonText: {
+        fontSize: '3rem',
         color:'white',
     },
     backText: {

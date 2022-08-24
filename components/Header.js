@@ -3,12 +3,12 @@ import { Text, View, StyleSheet, Image } from 'react-native';
 
 import profile from '../assets/images/person.png';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import signOut from '../authLogic/signOut.js';
 import { AuthContext } from '../authLogic/AuthProvider';
 
-
 const Header = ({ navigation }) => {
-    const {isLoggedIn}  = useContext(AuthContext)
+    const { isLoggedIn } = useContext(AuthContext)
+    const { signOut } = useContext(AuthContext)
+    console.log(isLoggedIn)
     return (
         <View>
             <Text style={styles.introductionTitle}>Hi Daniel!</Text>

@@ -11,9 +11,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '../../assets/colors/colors';
 import Restricted from '../../Screens/Auth/Restricted';
-import { useEffect, useState,useContext } from 'react';
-import { Auth } from 'aws-amplify';
-import HomeLoggedOut from '../../Screens/HomeLoggedOut';
+import { useContext } from 'react';
 import { AuthContext } from '../../authLogic/AuthProvider';
 
 
@@ -29,7 +27,7 @@ const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
 
-  
+  const { isLoggedIn } = useContext(AuthContext)
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -49,7 +47,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="PostEvent"
-        component={PostEvent}// Or restricted
+        component={isLoggedIn ? PostEvent : Restricted}// Or restricted
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="create-sharp" size={32} color={color} />
@@ -59,7 +57,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={Profile}// Or restricted 
+        component={isLoggedIn ? Profile : Restricted}// Or restricted 
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" size={32} color={color} />
