@@ -7,67 +7,48 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 FontAwesome.loadFont();
 import emptyImage from '../assets/images/empty image.jpg';
 import * as ImagePicker from 'expo-image-picker';
+import { API } from 'aws-amplify';
 
-const PostEvent = () => {
-  console.log(title, organisation, location, date, time, price, description)
-  // const requestOptions = {
-  //   method: 'POST',
-  //   headers: { 'Content-Type': 'application/json' },
-  //   body: JSON.stringify({ title:'daniel', organisation:organisation, location: location, date:date, time:time, price:price, description:description })
-    
-  // };  
-// const handleClick = async () => {
-//   try {
-//     await fetch('http://localhost:3000/events', { 
-//       method: 'POST',
-//       headers: { 'Content-Type': 'application/json' },
-//       body: JSON.stringify({ title:'daniel', organisation:organisation, location: location, date:date, time:time, price:price, description:description })
-//   })
-//     .then(response => {
-//       response.json()
-//           .then(data => {
-//               Alert.alert("The title is: " + title);
-//           });
-//   })
-//     // .then(response => response.json())
-//     // .then(data => console.log(data));
-//   }
-//   catch (error) {
-//     console.error(error);
-// }
+const PostEvent = ({navigation}) => {
+  console.log(image,title, organisation, location, date, time, price, description)
 
-const handleClick = async () => {
- 
-  try {
-    const response = await axios.post(`http://localhost:3000/events`, {
-      title,
-      organisation,
-      location,
-      date,
-      time,
-      price,
-      description
-    });
-    if (response.status === 201) {
-      alert(` You have created: ${JSON.stringify(response.data)}`);
-      setTitle('');
-      setOrganisation('');
-      setDate('');
-      setTime('');
-      setPrice('');
-      setDescription('');
-    } 
-    else if(response.status === 200) {
-      alert("You have posted the event: " + title)
+  const handleClick = async () => {
+  //create form and append data and image
+  const formData = new FormData();
+  formData.append('title', title);
+  formData.append('organisation', organisation);
+  formData.append('location', location);
+  formData.append('date', date);
+  formData.append('time', time);
+  formData.append('price', price);
+  formData.append('description', description);
+  formData.append('image', {
+    uri: image,
+    type:"image/jpeg",
+    name: "photo.jpg"
+  })
+
+  //post form to http
+  axios(
+  {
+    url: "http://localhost:3000/events",
+    method: 'POST',
+    data: formData,
+    headers: {
+      // Accept: 'application/json',
+      'Content-Type': 'multipart/form-data',
     }
-    else {
-      throw new Error("An error has occurred ");
-    }
-  } catch (error) {
-     alert("An error has occurred");
-    
-  }
-};
+  })
+  .then(function (response) {
+    console.log("response :", response);
+    alert(` You have created: ${JSON.stringify(response.data)}`);
+    navigation.navigate('EventDetails', {item:response.data,})
+  })
+  .catch(function (error) {
+    console.log("error from image :");
+  })
+  };
+
   const [image, setImage] = useState(emptyImage);
   const [title, setTitle] = useState('');
   const [organisation, setOrganisation] = useState('');
@@ -99,7 +80,7 @@ const handleClick = async () => {
           {image && <Image source={{ uri: image }} style={styles.EmptyImage} />}
           <TouchableOpacity style={{marginTop: 80,}} onPress= {() => pickImage()}>
                   <FontAwesome name="upload" size={22} color={colors.darkBlue} />
-          </TouchableOpacity>
+          </TouchableOpacity>   
       </View>
       <View>
         <TextInput placeholder="Title" style={styles.inputStyle} value={title} onChangeText={title => setTitle(title)}/>
@@ -128,15 +109,9 @@ const handleClick = async () => {
           </TouchableOpacity> 
         </View>
     </View>
-  );
-  
+  );  
 };
 
-/**
- * Add date and time properties to input fields
- * Have required fields and appropiate error messages
- * upload picture option?
- */
 const styles = StyleSheet.create({
   container: {
     flex: 1,
