@@ -13,6 +13,9 @@ const PostEvent = ({navigation}) => {
   console.log(image,title, organisation, location, date, time, price, description)
 
   const handleClick = async () => {
+
+  //needs error checking
+  
   //create form and append data and image
   const formData = new FormData();
   formData.append('title', title);
@@ -112,7 +115,7 @@ const PostEvent = ({navigation}) => {
   );  
 };
 
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: colors.white,

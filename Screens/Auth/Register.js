@@ -17,7 +17,8 @@ const Register = ({ navigation }) => {
     const [password, setPassword] = useState('');
     const [confirmedPass, setConfirmedPassword] = useState('');
 
-    const { signUp } = useContext(AuthContext)
+    const { signUp } = useContext(AuthContext);
+    // const { linkedinAutoFill } = useContext(AuthContext);
 
     return (
         <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>

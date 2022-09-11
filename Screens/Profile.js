@@ -149,14 +149,15 @@ const Profile = ({navigation}) => {
             },
         ],
     }
+    
 
     return (
         <ScrollView>
             <View style={styles.profileWrapper}>
                 {/**PROFILE INFO */}
-                <ProfileInfo user={user} navigation={navigation}></ProfileInfo> 
+                <ProfileInfo user={user}  org= {false} navigation={navigation}></ProfileInfo> 
                 {/**SOCIALS */}
-                <ProfileSocials user={user}></ProfileSocials>
+                <ProfileSocials user={user} org={false}></ProfileSocials>
             </View>
         </ScrollView>
     );

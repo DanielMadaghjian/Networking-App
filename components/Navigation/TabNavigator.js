@@ -9,10 +9,13 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import Octicons from 'react-native-vector-icons/Octicons';
 import colors from '../../assets/colors/colors';
 import Restricted from '../../Screens/Auth/Restricted';
 import { useContext } from 'react';
 import { AuthContext } from '../../authLogic/AuthProvider';
+import Organisation from '../../Screens/Organisation';
+import CreateOrganisation from '../../Screens/CreateOrganisation';
 
 
 
@@ -28,6 +31,7 @@ const Tab = createBottomTabNavigator();
 const TabNavigator = () => {
 
   const { isLoggedIn } = useContext(AuthContext)
+  const { userOrganisation } = useContext(AuthContext)
   return (
     <Tab.Navigator
       tabBarOptions={{
@@ -47,7 +51,7 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="PostEvent"
-        component={isLoggedIn ? PostEvent : Restricted}// Or restricted
+        component={isLoggedIn ? PostEvent : Restricted}
         options={{
           tabBarIcon: ({ color }) => (
             <Ionicons name="create-sharp" size={32} color={color} />
@@ -57,13 +61,23 @@ const TabNavigator = () => {
       />
       <Tab.Screen
         name="Profile"
-        component={isLoggedIn ? Profile : Restricted}// Or restricted 
+        component={isLoggedIn ? Profile : Restricted}
         options={{
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="account" size={32} color={color} />
           ),
         }}
       />
+      <Tab.Screen
+        name="Organisations"
+        component={isLoggedIn ? (userOrganisation ? Organisation : CreateOrganisation) : Restricted}
+        options={{
+          tabBarIcon: ({ color }) => (
+            <Octicons name="organization" size={32} color={color} />
+          ),
+        }}
+      />
+      
 
     </Tab.Navigator>
   );

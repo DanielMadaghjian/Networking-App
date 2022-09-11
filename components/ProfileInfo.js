@@ -6,46 +6,58 @@ import { TouchableOpacity } from 'react-native-gesture-handler/lib/commonjs';
 
 
 
-const ProfileInfo = ({user, navigation}) => {
-    
+const ProfileInfo = ({ user, navigation, org }) => {
+
 
     return (
         <View>
             <View style={styles.headerWrapper}>
-                        <Image source={user.image} style={styles.profileImage}></Image>
-                        <View style={styles.nameAndRoleWrapper}>
-                            <Text style={styles.nameText}>{user.title}</Text>
-                            <Text style={styles.roleText}>{user.role}</Text>
-                        </View>
-                        
-                        <View style = {{marginTop: 40, marginLeft: 10,}}>
+                <Image source={user.image} style={styles.profileImage}></Image>
+                <View style={styles.nameAndRoleWrapper}>
+                    <Text style={styles.nameText}>{user.title}</Text>
+                    <Text style={styles.roleText}>{org ? user.type : user.role}</Text>
+                </View>
+
+                {
+                    org ? <></> :
+                        <View style={{ marginTop: 40, marginLeft: 10, }}>
                             <Options navigation={navigation}></Options>
                         </View>
+                }
+
+            </View>
+            <View style={styles.descriptionWrapper}>
+                <Text style={styles.aboutText} >About {org ? 'Us' : 'Me'}</Text>
+                <Text numberOfLines={4} ellipsizeMode="tail" style={styles.description}>{org ? user.description : user.bio}</Text>
+            </View>
+            <View style={styles.statsWrapper}>
+                {org ?
+                    <TouchableOpacity onPress={() => navigation.navigate('OrganisationMembers')}>
+                        <View style={styles.statsCard}>
+                            <Text style={styles.stat}>{user.membersCount}</Text>
+                            <Text style={styles.statName}>Members</Text>
+                        </View>
+                    </TouchableOpacity> :
+                    <TouchableOpacity onPress={() => navigation.navigate('UserEventsAttended')}>
+                        <View style={styles.statsCard}>
+                            <Text style={styles.stat}>{user.eventsAttendedCount}</Text>
+                            <Text style={styles.statName}>Events Attended</Text>
+                        </View>
+                    </TouchableOpacity>
+                }
+                <TouchableOpacity onPress={() => navigation.navigate('UserEventsPosted')}>
+                    <View style={styles.statsCard}>
+                        <Text style={styles.stat}>{user.eventsPostedCount}</Text>
+                        <Text style={styles.statName}>Events Posted</Text>
                     </View>
-                    <View style={styles.descriptionWrapper}>
-                        <Text style={styles.aboutText} >About Me</Text>
-                        <Text numberOfLines={4} ellipsizeMode="tail" style={styles.description}>{user.bio}</Text>
-                    </View>
-                    <View style={styles.statsWrapper}>
-                        <TouchableOpacity  onPress={() => navigation.navigate('UserEventsAttended')}>
-                            <View style={styles.statsCard}>
-                                <Text style={styles.stat}>{user.eventsAttendedCount}</Text>
-                                <Text style={styles.statName}>Events Attended</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity  onPress={() => navigation.navigate('UserEventsPosted')}>
-                            <View style={styles.statsCard}>
-                                <Text style={styles.stat}>{user.eventsPostedCount}</Text>
-                                <Text style={styles.statName}>Events Posted</Text>
-                            </View>
-                        </TouchableOpacity>
+                </TouchableOpacity>
             </View>
         </View>
     );
 };
 
 const styles = StyleSheet.create({
-    
+
     statsWrapper: {
         width: 275,
         marginTop: 10,
@@ -59,14 +71,14 @@ const styles = StyleSheet.create({
         width: 125,
         textAlign: 'center',
     },
-   
+
     stat: {
         marginTop: 10,
         fontWeight: 'bold',
         fontSize: 20,
         color: colors.white
     },
-   
+
     profileImage: {
         width: 140,
         height: 140,
@@ -110,7 +122,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        
+
     },
 })
 

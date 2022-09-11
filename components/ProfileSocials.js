@@ -7,7 +7,7 @@ import { StyleSheet, Image, View, Text, Linking } from 'react-native';
 import { FlatList, TouchableOpacity } from 'react-native-gesture-handler/lib/commonjs';
 // import user from '../assets/data/users';
 
-const ProfileSocials = ({user}) => {
+const ProfileSocials = ({user,org}) => {
     const renderSocials = ({ item }) => {
         if (item.availiable == false) return
         return (
@@ -22,7 +22,7 @@ const ProfileSocials = ({user}) => {
         <View>
                 <View style={styles.socialsWrapper}>
                     <View style={styles.socialsHeader}>
-                        <Text>My Socials</Text>
+                        <Text>{org ? 'Our' : 'My'} Socials</Text>
                         {/* Should be buttons */}
                         <View style={styles.symbolContainer}>
                             <TouchableOpacity>

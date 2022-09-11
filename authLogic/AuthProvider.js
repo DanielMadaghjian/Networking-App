@@ -159,7 +159,8 @@ export const AuthProvider = ({ children }) => {
             
         })
       },
-      isLoggedIn: state.userToken ? true : false
+      isLoggedIn: state.userToken ? true : false,
+      userOrganisation: true
     }),
     [state]
   );
